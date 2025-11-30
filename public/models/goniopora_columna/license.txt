@@ -1,0 +1,8 @@
+Model Information:
+* title:	Goniopora columna
+* source:	https://sketchfab.com/3d-models/goniopora-columna-6b652ae52c4d4232b26cfb5b900f7d8a
+* author:	The Smithsonian Institution (https://sketchfab.com/Smithsonian)
+
+Model License:
+* license type:	CC0-1.0 (http://creativecommons.org/publicdomain/zero/1.0/)
+* requirements:	Credit is not mandatory. Commercial use is allowed.

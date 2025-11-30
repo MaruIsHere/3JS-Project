@@ -1,0 +1,8 @@
+Model Information:
+* title:	Madrepora horrida
+* source:	https://sketchfab.com/3d-models/madrepora-horrida-60172766ef16493fb827cda13e728b86
+* author:	The Smithsonian Institution (https://sketchfab.com/Smithsonian)
+
+Model License:
+* license type:	CC0-1.0 (http://creativecommons.org/publicdomain/zero/1.0/)
+* requirements:	Credit is not mandatory. Commercial use is allowed.

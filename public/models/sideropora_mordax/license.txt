@@ -1,0 +1,8 @@
+Model Information:
+* title:	Sideropora mordax
+* source:	https://sketchfab.com/3d-models/sideropora-mordax-0e95547d5d6b4f829352b86147159c4f
+* author:	The Smithsonian Institution (https://sketchfab.com/Smithsonian)
+
+Model License:
+* license type:	CC0-1.0 (http://creativecommons.org/publicdomain/zero/1.0/)
+* requirements:	Credit is not mandatory. Commercial use is allowed.

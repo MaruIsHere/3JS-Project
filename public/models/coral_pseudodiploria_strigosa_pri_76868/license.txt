@@ -1,0 +1,8 @@
+Model Information:
+* title:	Coral: Pseudodiploria strigosa (PRI 76868)
+* source:	https://sketchfab.com/3d-models/coral-pseudodiploria-strigosa-pri-76868-aea81ca68678406582c03d37100e4b86
+* author:	Digital Atlas of Ancient Life (https://sketchfab.com/DigitalAtlasOfAncientLife)
+
+Model License:
+* license type:	CC0-1.0 (http://creativecommons.org/publicdomain/zero/1.0/)
+* requirements:	Credit is not mandatory. Commercial use is allowed.

@@ -1,0 +1,8 @@
+Model Information:
+* title:	Corallium sp.
+* source:	https://sketchfab.com/3d-models/corallium-sp-86a4945328034cc89f648dc4e3d36672
+* author:	The Smithsonian Institution (https://sketchfab.com/Smithsonian)
+
+Model License:
+* license type:	CC0-1.0 (http://creativecommons.org/publicdomain/zero/1.0/)
+* requirements:	Credit is not mandatory. Commercial use is allowed.

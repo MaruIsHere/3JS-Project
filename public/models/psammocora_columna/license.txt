@@ -1,0 +1,8 @@
+Model Information:
+* title:	Psammocora columna
+* source:	https://sketchfab.com/3d-models/psammocora-columna-a10e8a28063f4c2685a340a60f40e792
+* author:	The Smithsonian Institution (https://sketchfab.com/Smithsonian)
+
+Model License:
+* license type:	CC0-1.0 (http://creativecommons.org/publicdomain/zero/1.0/)
+* requirements:	Credit is not mandatory. Commercial use is allowed.

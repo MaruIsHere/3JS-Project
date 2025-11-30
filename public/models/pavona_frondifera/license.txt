@@ -1,0 +1,11 @@
+Model Information:
+* title:	Pavona frondifera
+* source:	https://sketchfab.com/3d-models/pavona-frondifera-9eaf77a006a54d03a91f6b4995bf7eab
+* author:	thehydrous (https://sketchfab.com/thehydro.us)
+
+Model License:
+* license type:	CC-BY-NC-SA-4.0 (http://creativecommons.org/licenses/by-nc-sa/4.0/)
+* requirements:	Author must be credited. No commercial use. Modified versions must have the same license.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Pavona frondifera" (https://sketchfab.com/3d-models/pavona-frondifera-9eaf77a006a54d03a91f6b4995bf7eab) by thehydrous (https://sketchfab.com/thehydro.us) licensed under CC-BY-NC-SA-4.0 (http://creativecommons.org/licenses/by-nc-sa/4.0/)

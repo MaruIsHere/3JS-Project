@@ -1,0 +1,8 @@
+Model Information:
+* title:	Millepora alcicornis
+* source:	https://sketchfab.com/3d-models/millepora-alcicornis-c423e8f191954fb08fd0ace0bf6ba5ef
+* author:	The Smithsonian Institution (https://sketchfab.com/Smithsonian)
+
+Model License:
+* license type:	CC0-1.0 (http://creativecommons.org/publicdomain/zero/1.0/)
+* requirements:	Credit is not mandatory. Commercial use is allowed.

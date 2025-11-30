@@ -1,0 +1,11 @@
+Model Information:
+* title:	Heliopora sp.
+* source:	https://sketchfab.com/3d-models/heliopora-sp-9870498703bb403eb6ea9da033c0a256
+* author:	California Academy of Sciences Viz Studio (https://sketchfab.com/vizstudio)
+
+Model License:
+* license type:	CC-BY-NC-ND-4.0 (http://creativecommons.org/licenses/by-nc-nd/4.0/)
+* requirements:	Author must be credited. No commercial use. Modified versions can not be distributed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Heliopora sp." (https://sketchfab.com/3d-models/heliopora-sp-9870498703bb403eb6ea9da033c0a256) by California Academy of Sciences Viz Studio (https://sketchfab.com/vizstudio) licensed under CC-BY-NC-ND-4.0 (http://creativecommons.org/licenses/by-nc-nd/4.0/)

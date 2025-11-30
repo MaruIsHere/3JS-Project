@@ -1,0 +1,11 @@
+Model Information:
+* title:	Elkhorn Coral / Acropora palmata
+* source:	https://sketchfab.com/3d-models/elkhorn-coral-acropora-palmata-ce0fdf05ab8c4a0e94015cf3798cbc45
+* author:	Patric Lengacher (https://sketchfab.com/patric_ocean)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Elkhorn Coral / Acropora palmata" (https://sketchfab.com/3d-models/elkhorn-coral-acropora-palmata-ce0fdf05ab8c4a0e94015cf3798cbc45) by Patric Lengacher (https://sketchfab.com/patric_ocean) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

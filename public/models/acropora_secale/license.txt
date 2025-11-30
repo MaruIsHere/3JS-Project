@@ -1,0 +1,8 @@
+Model Information:
+* title:	Acropora secale
+* source:	https://sketchfab.com/3d-models/acropora-secale-4650d132e07b420ba3da377f2f41a5e8
+* author:	The Smithsonian Institution (https://sketchfab.com/Smithsonian)
+
+Model License:
+* license type:	CC0-1.0 (http://creativecommons.org/publicdomain/zero/1.0/)
+* requirements:	Credit is not mandatory. Commercial use is allowed.

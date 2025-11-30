@@ -1,0 +1,8 @@
+Model Information:
+* title:	Pavonia decussata
+* source:	https://sketchfab.com/3d-models/pavonia-decussata-ede28113ebe7457aa5d4b9f7e23e6f7e
+* author:	The Smithsonian Institution (https://sketchfab.com/Smithsonian)
+
+Model License:
+* license type:	CC0-1.0 (http://creativecommons.org/publicdomain/zero/1.0/)
+* requirements:	Credit is not mandatory. Commercial use is allowed.

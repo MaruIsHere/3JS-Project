@@ -1,0 +1,11 @@
+Model Information:
+* title:	Scleractinina coral indet.
+* source:	https://sketchfab.com/3d-models/scleractinina-coral-indet-556b11005d634bb889da5cdaf692ce6d
+* author:	John Merck (https://sketchfab.com/jmerck)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Scleractinina coral indet." (https://sketchfab.com/3d-models/scleractinina-coral-indet-556b11005d634bb889da5cdaf692ce6d) by John Merck (https://sketchfab.com/jmerck) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

@@ -1,0 +1,11 @@
+Model Information:
+* title:	Pocillopora eydouxi 2.0
+* source:	https://sketchfab.com/3d-models/pocillopora-eydouxi-20-fb8396db43ab4ce3b17185cfc5dbd6f1
+* author:	thehydrous (https://sketchfab.com/thehydro.us)
+
+Model License:
+* license type:	CC-BY-NC-4.0 (http://creativecommons.org/licenses/by-nc/4.0/)
+* requirements:	Author must be credited. No commercial use.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Pocillopora eydouxi 2.0" (https://sketchfab.com/3d-models/pocillopora-eydouxi-20-fb8396db43ab4ce3b17185cfc5dbd6f1) by thehydrous (https://sketchfab.com/thehydro.us) licensed under CC-BY-NC-4.0 (http://creativecommons.org/licenses/by-nc/4.0/)

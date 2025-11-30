@@ -1,0 +1,8 @@
+Model Information:
+* title:	Madrepora hyacinthus
+* source:	https://sketchfab.com/3d-models/madrepora-hyacinthus-5e8f3939400d4753bcb8e4a43819473c
+* author:	The Smithsonian Institution (https://sketchfab.com/Smithsonian)
+
+Model License:
+* license type:	CC0-1.0 (http://creativecommons.org/publicdomain/zero/1.0/)
+* requirements:	Credit is not mandatory. Commercial use is allowed.

@@ -1,0 +1,11 @@
+Model Information:
+* title:	Oculina sp. skeleton
+* source:	https://sketchfab.com/3d-models/oculina-sp-skeleton-bb6342dba38d4e7c8ed98c621d9e6f0a
+* author:	TheRLab (https://sketchfab.com/therlab)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Oculina sp. skeleton" (https://sketchfab.com/3d-models/oculina-sp-skeleton-bb6342dba38d4e7c8ed98c621d9e6f0a) by TheRLab (https://sketchfab.com/therlab) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
