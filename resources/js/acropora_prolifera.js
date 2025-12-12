@@ -5,14 +5,28 @@ import { OrbitControls } from "https://cdn.skypack.dev/three@0.129.0/examples/js
 // To allow for importing the .gltf file
 import { GLTFLoader } from "https://cdn.skypack.dev/three@0.129.0/examples/jsm/loaders/GLTFLoader.js";
 
+//Set which object to render (juga digunakan sebagai ID wadah)
+let objToRender = "acropora_prolifera";
+
+// 1. AMBIL ELEMEN WADAH DAN DIMENSINYA
+const container = document.getElementById(objToRender);
+const containerWidth = container.clientWidth;
+const containerHeight = container.clientHeight;
+
 //Create a Three.JS Scene
 const scene = new THREE.Scene();
 //create a new camera with positions and angles
-const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+const camera = new THREE.PerspectiveCamera(
+    75, // PERBAIKAN: Gunakan dimensi wadah (container)
+    containerWidth / containerHeight,
+    0.1,
+    1000
+);
 
 //Keep track of the mouse position, so we can make the eye move
-let mouseX = window.innerWidth / 2;
-let mouseY = window.innerHeight / 2;
+// PERBAIKAN: Inisiasi mouse relatif terhadap wadah
+let mouseX = containerWidth / 2;
+let mouseY = containerHeight / 2;
 
 //Keep the 3D object on a global variable so we can access it later
 let object;
@@ -20,79 +34,82 @@ let object;
 //OrbitControls allow the camera to move around the scene
 let controls;
 
-//Set which object to render
-let objToRender = 'acropora_prolifera';
-
 //Instantiate a loader for the .gltf file
 const loader = new GLTFLoader();
 
 //Load the file
 loader.load(
-  `./models/${objToRender}/scene.gltf`,
-  function (gltf) {
-    //If the file is loaded, add it to the scene
-    object = gltf.scene;
-    scene.add(object);
-  },
-  function (xhr) {
-    //While it is loading, log the progress
-    console.log((xhr.loaded / xhr.total * 100) + '% loaded');
-  },
-  function (error) {
-    //If there is an error, log it
-    console.error(error);
-  }
+    `/models/${objToRender}/scene.gltf`,
+    function (gltf) {
+        //If the file is loaded, add it to the scene
+        object = gltf.scene;
+        scene.add(object);
+    },
+    function (xhr) {
+        //While it is loading, log the progress
+        console.log((xhr.loaded / xhr.total) * 100 + "% loaded");
+    },
+    function (error) {
+        //If there is an error, log it
+        console.error(error);
+    }
 );
 
 //Instantiate a new renderer and set its size
 const renderer = new THREE.WebGLRenderer({ alpha: true }); //Alpha: true allows for the transparent background
-renderer.setSize(window.innerWidth, window.innerHeight);
+// PERBAIKAN: Gunakan dimensi wadah
+renderer.setSize(containerWidth, containerHeight);
 
 //Add the renderer to the DOM
-document.getElementById("acropora_prolifera").appendChild(renderer.domElement);
+document.getElementById(objToRender).appendChild(renderer.domElement);
 
 //Set how far the camera will be from the 3D model
 camera.position.z = objToRender === "acropora_prolifera" ? 0.3 : 500;
 
 //Add lights to the scene, so we can actually see the 3D model
 const topLight = new THREE.DirectionalLight(0xffffff, 1); // (color, intensity)
-topLight.position.set(500, 500, 500) //top-left-ish
+topLight.position.set(500, 500, 500); //top-left-ish
 topLight.castShadow = true;
 scene.add(topLight);
 
-const ambientLight = new THREE.AmbientLight(0x333333, objToRender === "acropora_prolifera" ? 8 : 1);
+const ambientLight = new THREE.AmbientLight(
+    0x333333,
+    objToRender === "acropora_prolifera" ? 8 : 1
+);
 scene.add(ambientLight);
 
 //This adds controls to the camera, so we can rotate / zoom it with the mouse
 if (objToRender === "acropora_prolifera") {
-  controls = new OrbitControls(camera, renderer.domElement);
+    controls = new OrbitControls(camera, renderer.domElement);
 }
 
 //Render the scene
 function animate() {
-  requestAnimationFrame(animate);
-  //Here we could add some code to update the scene, adding some automatic movement
-
-  //Make the eye move
-  if (object && objToRender === "acropora_prolifera") {
-    //I've played with the constants here until it looked good 
-    object.rotation.y = -3 + mouseX / window.innerWidth * 3;
-    object.rotation.x = -1.2 + mouseY * 2.5 / window.innerHeight;
-  }
-  renderer.render(scene, camera);
+    requestAnimationFrame(animate); //Here we could add some code to update the scene, adding some automatic movement //Make the eye move
+    if (object && objToRender === "acropora_prolifera") {
+        // PERBAIKAN: Gunakan containerWidth/Height untuk perhitungan mouse
+        object.rotation.y = -3 + (mouseX / containerWidth) * 3;
+        object.rotation.x = -1.2 + (mouseY * 2.5) / containerHeight;
+    }
+    renderer.render(scene, camera);
 }
 
 //Add a listener to the window, so we can resize the window and the camera
 window.addEventListener("resize", function () {
-  camera.aspect = window.innerWidth / window.innerHeight;
-  camera.updateProjectionMatrix();
-  renderer.setSize(window.innerWidth, window.innerHeight);
+    // PERBAIKAN: Saat resize, kita harus mengulang pengambilan dimensi wadah
+    const containerResize = document.getElementById(objToRender);
+    const containerWidthResize = containerResize.clientWidth;
+    const containerHeightResize = containerResize.clientHeight;
+
+    camera.aspect = containerWidthResize / containerHeightResize;
+    camera.updateProjectionMatrix();
+    renderer.setSize(containerWidthResize, containerHeightResize);
 });
 
 //add mouse position listener, so we can make the eye move
 //document.onmousemove = (e) => {
- // mouseX = e.clientX;
- // mouseY = e.clientY;
+// mouseX = e.clientX;
+// mouseY = e.clientY;
 //}
 
 //Start the 3D rendering

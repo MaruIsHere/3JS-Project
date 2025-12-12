@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Storage;
 
 class DataController extends Controller
 {
-     public function index(Request $request)
+    public function index(Request $request)
     {
         $query = Product::query();
 
@@ -20,10 +20,14 @@ class DataController extends Controller
         return view('data.object', compact('datas'));
     }
 
-     public function show(Product $data)
+    public function show(Product $data)
     {
         return view('data.object-detail', compact('data'));
     }
+
+    public function data3d(Product $id)
+    {
+        return view('3D.3dObject', compact('id'));
+        // return view('3D.acropora_cervicornis', compact('id'));
+    }
 }
-
-

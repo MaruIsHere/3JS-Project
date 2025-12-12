@@ -1,40 +1,48 @@
-@extends('layouts.app2')
+@extends('layouts.display')
 
 @section('title', 'Object 3D')
 
 @section('content')
-    <!-- New Arrival -->
-    <section class="padding-top-100 padding-bottom-100">
-      <div class="container"> 
-        
-        <!-- Main Heading -->
-        <div class="heading text-center">
-          <h4>Daftar Object 3D Terumbu Karang</h4>
-          <span>Berikut adalah list terumbu karang:</span> </div>
-        </div>
-      
-      <!-- New Arrival -->
-      <div class="arrival-block"> 
+	<section class="bg-light" style="padding-top: 100px; padding-bottom: 100px;">
+		<div class="container">
 
-        @foreach ($datas as $key => $data)
-         <!-- Item -->
-        <div class="item"> 
-          <!-- Images --> 
-          @if($data->image)
-                <img src="{{ asset('storage/products/' . $data->image) }}" 
-                alt="Product Image" class="product-image">
-          @else
-                <div class="product-image bg-light d-flex align-items-center justify-content-center">
-                  <i class="fas fa-image text-muted"></i>
-               </div>
-          @endif
-          <!-- Item Name -->
-          <div class="item-name"> <a href="{{ route('data.show', $data) }}">{{ $data->name }}</a>
-          </div>
-        </div>
-            
-        @endforeach
-      </div>
-    </section>
+			<div class="heading text-center mb-5">
+				<h4>Daftar Object 3D Terumbu Karang</h4>
+				<span>List dari 3D Terumbu Karang</span>
+			</div>
+
+			<div class="row row-fix">
+				@foreach ($datas as $key => $data)
+					<div class="col-6 col-md-4 col-lg-3 column-spacing gy-5">
+
+						<div class="card h-100 shadow-sm hover-card d-flex flex-column">
+
+							<div class="position-relative d-flex justify-content-center align-items-center bg-white py-3"
+								style="height: 250px; overflow: hidden;">
+
+								<a href="{{ route('data.show', $data) }}" class="d-block text-center w-100">
+									@if ($data->image)
+										<img src="{{ asset('storage/products/' . $data->image) }}" alt="{{ $data->name }}" class="img-fluid">
+									@else
+										<div class="d-flex align-items-center justify-content-center" style="height: 240px;">
+											<i class="fas fa-cube fa-4x text-secondary opacity-25"></i>
+										</div>
+									@endif
+								</a>
+							</div>
+
+							<div class="card-body text-center border-top flex-grow-1">
+								<h6 class="card-title mb-0">
+									<a href="{{ route('data.show', $data) }}" class="text-decoration-none text-dark fw-bold stretched-link">
+										{{ $data->name }}
+									</a>
+								</h6>
+							</div>
+						</div>
+					</div>
+				@endforeach
+			</div>
+		</div>
+	</section>
+
 @endsection
-  

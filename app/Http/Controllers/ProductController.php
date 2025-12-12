@@ -19,23 +19,20 @@ class ProductController extends Controller
         // Search functionality
         if ($request->filled('search')) {
             $search = $request->search;
-            $query->where(function($q) use ($search) {
+            $query->where(function ($q) use ($search) {
                 $q->where('name', 'like', "%{$search}%")
-                  ->orWhere('code', 'like', "%{$search}%")
-                  ->orWhere('category', 'like', "%{$search}%");
+                    ->orWhere('code', 'like', "%{$search}%")
+                    ->orWhere('category', 'like', "%{$search}%");
             });
         }
-
         // Filter by category
         if ($request->filled('category')) {
             $query->where('category', $request->category);
         }
-
         // Filter by status
         if ($request->filled('status')) {
             $query->where('status', $request->status);
         }
-
         $products = $query->latest()->paginate(10);
         $products->appends($request->query());
 
@@ -44,7 +41,6 @@ class ProductController extends Controller
 
         return view('products.index', compact('products', 'categories'));
     }
-
     /**
      * Show the form for creating a new resource.
      */
@@ -59,7 +55,7 @@ class ProductController extends Controller
     public function store(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            'code' => 'required|unique:products|max:20',
+            'code' => 'required|unique:products|max:100',
             'name' => 'required|max:100',
             'description' => 'required',
             'information' => 'required',
@@ -171,10 +167,10 @@ class ProductController extends Controller
         // Search functionality
         if ($request->filled('search')) {
             $search = $request->search;
-            $query->where(function($q) use ($search) {
+            $query->where(function ($q) use ($search) {
                 $q->where('name', 'like', "%{$search}%")
-                  ->orWhere('code', 'like', "%{$search}%")
-                  ->orWhere('category', 'like', "%{$search}%");
+                    ->orWhere('code', 'like', "%{$search}%")
+                    ->orWhere('category', 'like', "%{$search}%");
             });
         }
 
@@ -196,5 +192,4 @@ class ProductController extends Controller
 
         return view('products.object', compact('products', 'categories'));
     }
-
 }

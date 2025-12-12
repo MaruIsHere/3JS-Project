@@ -15,22 +15,21 @@ use App\Http\Controllers\ProductController;
 |
 */
 
-Route::get('/1', function () {
-    return view('3D.acropora_cervicornis');
-});
+// Route::get('/1', function () {
+//     return view('3D.acropora_cervicornis');
+// });
 
 Route::get('/', function () {
-    return redirect()->route('products.index');
+    return redirect()->route('data.index');
 });
 
 Route::get('/data', function () {
     return redirect()->route('data.index');
 });
 
+Route::get('/3dObject/{id}', [DataController::class, 'data3d'])->name('object3D');
+
 
 Route::resource('products', ProductController::class);
 
 Route::resource('data', DataController::class);
-
-
-

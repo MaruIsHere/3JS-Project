@@ -10,7 +10,7 @@ return new class extends Migration
     {
         Schema::create('products', function (Blueprint $table) {
             $table->id();
-            $table->string('code', 20)->unique();
+            $table->string('code', 100)->unique();
             $table->string('name', 100);
             $table->text('information');
             $table->text('description');
