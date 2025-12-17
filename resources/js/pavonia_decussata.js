@@ -5,28 +5,34 @@ import { OrbitControls } from "https://cdn.skypack.dev/three@0.129.0/examples/js
 // To allow for importing the .gltf file
 import { GLTFLoader } from "https://cdn.skypack.dev/three@0.129.0/examples/jsm/loaders/GLTFLoader.js";
 
+//Set which object to render (juga digunakan sebagai ID wadah)
+let objToRender = "pavonia_decussata";
+
+// 1. AMBIL ELEMEN WADAH DAN DIMENSINYA
+const container = document.getElementById(objToRender);
+const containerWidth = container.clientWidth;
+const containerHeight = container.clientHeight;
+
 //Create a Three.JS Scene
 const scene = new THREE.Scene();
 //create a new camera with positions and angles
 const camera = new THREE.PerspectiveCamera(
-    75,
-    window.innerWidth / window.innerHeight,
+    75, // PERBAIKAN: Gunakan dimensi wadah (container)
+    containerWidth / containerHeight,
     0.1,
     1000
 );
 
 //Keep track of the mouse position, so we can make the eye move
-let mouseX = window.innerWidth / 2;
-let mouseY = window.innerHeight / 2;
+// PERBAIKAN: Inisiasi mouse relatif terhadap wadah
+let mouseX = containerWidth / 2;
+let mouseY = containerHeight / 2;
 
 //Keep the 3D object on a global variable so we can access it later
 let object;
 
 //OrbitControls allow the camera to move around the scene
 let controls;
-
-//Set which object to render
-let objToRender = "pavonia_decussata";
 
 //Instantiate a loader for the .gltf file
 const loader = new GLTFLoader();
@@ -51,10 +57,11 @@ loader.load(
 
 //Instantiate a new renderer and set its size
 const renderer = new THREE.WebGLRenderer({ alpha: true }); //Alpha: true allows for the transparent background
-renderer.setSize(window.innerWidth, window.innerHeight);
+// PERBAIKAN: Gunakan dimensi wadah
+renderer.setSize(containerWidth, containerHeight);
 
 //Add the renderer to the DOM
-document.getElementById("pavonia_decussata").appendChild(renderer.domElement);
+document.getElementById(objToRender).appendChild(renderer.domElement);
 
 //Set how far the camera will be from the 3D model
 camera.position.z = objToRender === "pavonia_decussata" ? 0.2 : 500;
@@ -78,23 +85,25 @@ if (objToRender === "pavonia_decussata") {
 
 //Render the scene
 function animate() {
-    requestAnimationFrame(animate);
-    //Here we could add some code to update the scene, adding some automatic movement
-
-    //Make the eye move
+    requestAnimationFrame(animate); //Here we could add some code to update the scene, adding some automatic movement //Make the eye move
     if (object && objToRender === "pavonia_decussata") {
-        //I've played with the constants here until it looked good
-        object.rotation.y = -3 + (mouseX / window.innerWidth) * 3;
-        object.rotation.x = -1.2 + (mouseY * 2.5) / window.innerHeight;
+        // PERBAIKAN: Gunakan containerWidth/Height untuk perhitungan mouse
+        object.rotation.y = -3 + (mouseX / containerWidth) * 3;
+        object.rotation.x = -1.2 + (mouseY * 2.5) / containerHeight;
     }
     renderer.render(scene, camera);
 }
 
 //Add a listener to the window, so we can resize the window and the camera
 window.addEventListener("resize", function () {
-    camera.aspect = window.innerWidth / window.innerHeight;
+    // PERBAIKAN: Saat resize, kita harus mengulang pengambilan dimensi wadah
+    const containerResize = document.getElementById(objToRender);
+    const containerWidthResize = containerResize.clientWidth;
+    const containerHeightResize = containerResize.clientHeight;
+
+    camera.aspect = containerWidthResize / containerHeightResize;
     camera.updateProjectionMatrix();
-    renderer.setSize(window.innerWidth, window.innerHeight);
+    renderer.setSize(containerWidthResize, containerHeightResize);
 });
 
 //add mouse position listener, so we can make the eye move

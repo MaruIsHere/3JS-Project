@@ -5,28 +5,34 @@ import { OrbitControls } from "https://cdn.skypack.dev/three@0.129.0/examples/js
 // To allow for importing the .gltf file
 import { GLTFLoader } from "https://cdn.skypack.dev/three@0.129.0/examples/jsm/loaders/GLTFLoader.js";
 
+//Set which object to render
+let objToRender = "scleractinina_coral_indet";
+
+// 1. AMBIL ELEMEN WADAH DAN DIMENSINYA
+const container = document.getElementById(objToRender);
+const containerWidth = container.clientWidth;
+const containerHeight = container.clientHeight;
+
 //Create a Three.JS Scene
 const scene = new THREE.Scene();
+
 //create a new camera with positions and angles
 const camera = new THREE.PerspectiveCamera(
     75,
-    window.innerWidth / window.innerHeight,
+    containerWidth / containerHeight, // Gunakan dimensi kontainer
     0.1,
     1000
 );
 
-//Keep track of the mouse position, so we can make the eye move
-let mouseX = window.innerWidth / 2;
-let mouseY = window.innerHeight / 2;
+//Keep track of the mouse position
+let mouseX = containerWidth / 2;
+let mouseY = containerHeight / 2;
 
-//Keep the 3D object on a global variable so we can access it later
+//Keep the 3D object on a global variable
 let object;
 
 //OrbitControls allow the camera to move around the scene
 let controls;
-
-//Set which object to render
-let objToRender = "scleractinina_coral_indet";
 
 //Instantiate a loader for the .gltf file
 const loader = new GLTFLoader();
@@ -35,35 +41,30 @@ const loader = new GLTFLoader();
 loader.load(
     `/models/${objToRender}/scene.gltf`,
     function (gltf) {
-        //If the file is loaded, add it to the scene
         object = gltf.scene;
         scene.add(object);
     },
     function (xhr) {
-        //While it is loading, log the progress
         console.log((xhr.loaded / xhr.total) * 100 + "% loaded");
     },
     function (error) {
-        //If there is an error, log it
         console.error(error);
     }
 );
 
 //Instantiate a new renderer and set its size
-const renderer = new THREE.WebGLRenderer({ alpha: true }); //Alpha: true allows for the transparent background
-renderer.setSize(window.innerWidth, window.innerHeight);
+const renderer = new THREE.WebGLRenderer({ alpha: true });
+renderer.setSize(containerWidth, containerHeight); // Gunakan dimensi kontainer
 
 //Add the renderer to the DOM
-document
-    .getElementById("scleractinina_coral_indet")
-    .appendChild(renderer.domElement);
+container.appendChild(renderer.domElement);
 
 //Set how far the camera will be from the 3D model
 camera.position.z = objToRender === "scleractinina_coral_indet" ? 2 : 500;
 
-//Add lights to the scene, so we can actually see the 3D model
-const topLight = new THREE.DirectionalLight(0xffffff, 1); // (color, intensity)
-topLight.position.set(500, 500, 500); //top-left-ish
+//Add lights to the scene
+const topLight = new THREE.DirectionalLight(0xffffff, 1);
+topLight.position.set(500, 500, 500);
 topLight.castShadow = true;
 scene.add(topLight);
 
@@ -73,7 +74,7 @@ const ambientLight = new THREE.AmbientLight(
 );
 scene.add(ambientLight);
 
-//This adds controls to the camera, so we can rotate / zoom it with the mouse
+//This adds controls to the camera
 if (objToRender === "scleractinina_coral_indet") {
     controls = new OrbitControls(camera, renderer.domElement);
 }
@@ -81,29 +82,24 @@ if (objToRender === "scleractinina_coral_indet") {
 //Render the scene
 function animate() {
     requestAnimationFrame(animate);
-    //Here we could add some code to update the scene, adding some automatic movement
 
-    //Make the eye move
+    // Animasi rotasi berdasarkan pergerakan mouse di dalam kontainer
     if (object && objToRender === "scleractinina_coral_indet") {
-        //I've played with the constants here until it looked good
-        object.rotation.y = -3 + (mouseX / window.innerWidth) * 3;
-        object.rotation.x = -1.2 + (mouseY * 2.5) / window.innerHeight;
+        object.rotation.y = -3 + (mouseX / containerWidth) * 3;
+        object.rotation.x = -1.2 + (mouseY * 2.5) / containerHeight;
     }
     renderer.render(scene, camera);
 }
 
-//Add a listener to the window, so we can resize the window and the camera
+//Add a listener to resize the canvas correctly within its container
 window.addEventListener("resize", function () {
-    camera.aspect = window.innerWidth / window.innerHeight;
+    const newWidth = container.clientWidth;
+    const newHeight = container.clientHeight;
+
+    camera.aspect = newWidth / newHeight;
     camera.updateProjectionMatrix();
-    renderer.setSize(window.innerWidth, window.innerHeight);
+    renderer.setSize(newWidth, newHeight);
 });
 
-//add mouse position listener, so we can make the eye move
-//document.onmousemove = (e) => {
-// mouseX = e.clientX;
-// mouseY = e.clientY;
-//}
-
-//Start the 3D rendering
+// Jalankan rendering
 animate();

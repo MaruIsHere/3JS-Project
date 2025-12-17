@@ -14,7 +14,7 @@ class DataController extends Controller
     {
         $query = Product::query();
 
-        $datas = $query->latest()->paginate(10);
+        $datas = $query->latest()->paginate(100);
         $datas->appends($request->query());
 
         return view('data.object', compact('datas'));

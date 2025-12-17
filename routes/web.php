@@ -29,6 +29,7 @@ Route::get('/data', function () {
 
 Route::get('/3dObject/{id}', [DataController::class, 'data3d'])->name('object3D');
 
+Route::get('/generate-qrcode/{id}', [ProductController::class, 'generate']);
 
 Route::resource('products', ProductController::class);
 

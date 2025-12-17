@@ -21,7 +21,7 @@ const containerHeight = container.clientHeight;
 const scene = new THREE.Scene();
 //create a new camera with positions and angles
 const camera = new THREE.PerspectiveCamera(
-    75, // PERBAIKAN: Ganti window.innerWidth/Height dengan dimensi wadah
+    75, // PERBAIKAN: Menggunakan dimensi wadah
     containerWidth / containerHeight,
     0.1,
     1000
@@ -61,13 +61,11 @@ loader.load(
 
 //Instantiate a new renderer and set its size
 const renderer = new THREE.WebGLRenderer({ alpha: true }); //Alpha: true allows for the transparent background
-// PERBAIKAN: Ganti window.innerWidth/Height dengan dimensi wadah
+// PERBAIKAN: Menggunakan dimensi wadah
 renderer.setSize(containerWidth, containerHeight);
 
 //Add the renderer to the DOM
-document // ID wadah sudah benar
-    .getElementById(objToRender)
-    .appendChild(renderer.domElement);
+document.getElementById(objToRender).appendChild(renderer.domElement);
 
 //Set how far the camera will be from the 3D model
 camera.position.z = objToRender === "astraea_fissicella_favistella" ? 0.2 : 500;
@@ -91,9 +89,10 @@ if (objToRender === "astraea_fissicella_favistella") {
 
 //Render the scene
 function animate() {
-    requestAnimationFrame(animate); //Here we could add some code to update the scene, adding some automatic movement //Make the eye move
+    requestAnimationFrame(animate); //Here we could add some code to update the scene, adding some automatic movement
+    //Make the eye move
     if (object && objToRender === "astraea_fissicella_favistella") {
-        // PERBAIKAN: Gunakan containerWidth/Height untuk perhitungan mouse
+        // PERBAIKAN: Menggunakan containerWidth/Height untuk perhitungan mouse
         object.rotation.y = -3 + (mouseX / containerWidth) * 3;
         object.rotation.x = -1.2 + (mouseY * 2.5) / containerHeight;
     }

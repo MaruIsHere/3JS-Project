@@ -42,6 +42,7 @@
 					</div>
 				@endforeach
 			</div>
+			{{ $datas->links() }}
 		</div>
 	</section>
 

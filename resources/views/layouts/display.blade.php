@@ -22,10 +22,10 @@
 		/* CSS Wajib: Tambahkan padding ke body agar konten tidak tertutup fixed-top navbar */
 		body {
 			padding-top: 70px;
-			/* Ganti nilai ini jika navbar Anda lebih tinggi */
+			/* Ganti nilai ini jika navbar  lebih tinggi */
 		}
 
-		/* Jika Anda tidak ingin brand dan menu mepet ke tepi layar, ganti .container-fluid menjadi .container */
+		/* Jika  tidak ingin brand dan menu mepet ke tepi layar, ganti .container-fluid menjadi .container */
 	</style>
 </head>
 
@@ -43,8 +43,8 @@
 
 				<div class="collapse navbar-collapse" id="main-nav">
 					<ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-						<li class="nav-item"><a class="nav-link" href="/data">Beranda</a></li>
-						<li class="nav-item"><a class="nav-link" href="#">List Terumbu Karang</a></li>
+						<li class="nav-item"><a class="nav-link" href="{{ route('data.index') }}">Beranda</a></li>
+						<li class="nav-item"><a class="nav-link" href="{{ route('data.index') }}">List Terumbu Karang</a></li>
 					</ul>
 				</div>
 			</div>

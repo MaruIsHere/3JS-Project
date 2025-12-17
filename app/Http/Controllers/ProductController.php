@@ -6,6 +6,7 @@ use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Storage;
+use SimpleSoftwareIO\QrCode\Facades\QrCode;
 
 class ProductController extends Controller
 {
@@ -108,7 +109,7 @@ class ProductController extends Controller
     public function update(Request $request, Product $product)
     {
         $validator = Validator::make($request->all(), [
-            'code' => 'required|max:20|unique:products,code,' . $product->id,
+            'code' => 'required|max:100|unique:products,code,' . $product->id,
             'name' => 'required|max:100',
             'description' => 'required',
             'information' => 'required',
@@ -191,5 +192,18 @@ class ProductController extends Controller
         $categories = Product::distinct()->pluck('category');
 
         return view('products.object', compact('products', 'categories'));
+    }
+
+    public function generate($id)
+    {
+        // $qrCode = QrCode::size(200)->generate('https://example.com');
+        // return view('layouts.qrcode', compact('qrCode'));
+        // Generate frontend route URL for this inventory item
+        $frontendPath = "http://localhost:8000/3dObject/{$id}"; // or slug if you use slugs
+
+        // Generate QR code image and save to storage/app/public/qrcodes/
+        $qrCodePath = "qrcodes/inventory_{$id}.png";
+        // http://localhost:8000/3dObject/52
+        Storage::disk('public')->put($qrCodePath, QrCode::format('png')->size(300)->generate($frontendPath));
     }
 }

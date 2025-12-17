@@ -5,28 +5,34 @@ import { OrbitControls } from "https://cdn.skypack.dev/three@0.129.0/examples/js
 // To allow for importing the .gltf file
 import { GLTFLoader } from "https://cdn.skypack.dev/three@0.129.0/examples/jsm/loaders/GLTFLoader.js";
 
+//Set which object to render (ID wadah HTML)
+let objToRender = "sideropora_mordax";
+
+// 1. AMBIL ELEMEN WADAH DAN DIMENSINYA
+const container = document.getElementById(objToRender);
+const containerWidth = container.clientWidth;
+const containerHeight = container.clientHeight;
+
 //Create a Three.JS Scene
 const scene = new THREE.Scene();
+
 //create a new camera with positions and angles
 const camera = new THREE.PerspectiveCamera(
     75,
-    window.innerWidth / window.innerHeight,
+    containerWidth / containerHeight, // Gunakan dimensi wadah agar proporsional
     0.1,
     1000
 );
 
-//Keep track of the mouse position, so we can make the eye move
-let mouseX = window.innerWidth / 2;
-let mouseY = window.innerHeight / 2;
+//Keep track of the mouse position relatif terhadap wadah
+let mouseX = containerWidth / 2;
+let mouseY = containerHeight / 2;
 
 //Keep the 3D object on a global variable so we can access it later
 let object;
 
 //OrbitControls allow the camera to move around the scene
 let controls;
-
-//Set which object to render
-let objToRender = "sideropora_mordax";
 
 //Instantiate a loader for the .gltf file
 const loader = new GLTFLoader();
@@ -51,17 +57,17 @@ loader.load(
 
 //Instantiate a new renderer and set its size
 const renderer = new THREE.WebGLRenderer({ alpha: true }); //Alpha: true allows for the transparent background
-renderer.setSize(window.innerWidth, window.innerHeight);
+renderer.setSize(containerWidth, containerHeight); // Sesuai ukuran wadah
 
 //Add the renderer to the DOM
-document.getElementById("sideropora_mordax").appendChild(renderer.domElement);
+container.appendChild(renderer.domElement);
 
 //Set how far the camera will be from the 3D model
 camera.position.z = objToRender === "sideropora_mordax" ? 0.3 : 500;
 
-//Add lights to the scene, so we can actually see the 3D model
-const topLight = new THREE.DirectionalLight(0xffffff, 1); // (color, intensity)
-topLight.position.set(500, 500, 500); //top-left-ish
+//Add lights to the scene
+const topLight = new THREE.DirectionalLight(0xffffff, 1);
+topLight.position.set(500, 500, 500);
 topLight.castShadow = true;
 scene.add(topLight);
 
@@ -71,37 +77,31 @@ const ambientLight = new THREE.AmbientLight(
 );
 scene.add(ambientLight);
 
-//This adds controls to the camera, so we can rotate / zoom it with the mouse
+//This adds controls to the camera
 if (objToRender === "sideropora_mordax") {
     controls = new OrbitControls(camera, renderer.domElement);
 }
 
 //Render the scene
 function animate() {
-    requestAnimationFrame(animate);
-    //Here we could add some code to update the scene, adding some automatic movement
+    requestAnimationFrame(animate); // Efek rotasi halus berdasarkan posisi mouse di dalam kontainer
 
-    //Make the eye move
     if (object && objToRender === "sideropora_mordax") {
-        //I've played with the constants here until it looked good
-        object.rotation.y = -3 + (mouseX / window.innerWidth) * 3;
-        object.rotation.x = -1.2 + (mouseY * 2.5) / window.innerHeight;
+        object.rotation.y = -3 + (mouseX / containerWidth) * 3;
+        object.rotation.x = -1.2 + (mouseY * 2.5) / containerHeight;
     }
     renderer.render(scene, camera);
 }
 
-//Add a listener to the window, so we can resize the window and the camera
+//Listener untuk resize agar tetap responsif di dalam kontainer
 window.addEventListener("resize", function () {
-    camera.aspect = window.innerWidth / window.innerHeight;
+    const newWidth = container.clientWidth;
+    const newHeight = container.clientHeight;
+
+    camera.aspect = newWidth / newHeight;
     camera.updateProjectionMatrix();
-    renderer.setSize(window.innerWidth, window.innerHeight);
+    renderer.setSize(newWidth, newHeight);
 });
 
-//add mouse position listener, so we can make the eye move
-//document.onmousemove = (e) => {
-// mouseX = e.clientX;
-// mouseY = e.clientY;
-//}
-
-//Start the 3D rendering
+//Mulai rendering
 animate();

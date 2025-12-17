@@ -1,69 +1,64 @@
-@extends('layouts.app2')
+@extends('layouts.display')
 
 @section('title', 'Detail Object 3D')
 
 @section('content')
 
-	<!-- Popular Products -->
-	<section class="padding-top-100 padding-bottom-100">
+
+	<section class="py-5">
 		<div class="container">
 
-			<!-- SHOP DETAIL -->
 			<div class="shop-detail">
 				<div class="row">
 
-					<div class="heading text-center">
-						<a href="{{ route('object3D', $data->id) }}">
-							<h4> {{ $data->name }}</h4>
+					<div class="col-12 text-center mb-4">
+						<a href="{{ route('object3D', $data->id) }}" class="text-decoration-none text-dark">
+							{{-- Gunakan heading yang semantik, misal h2 --}}
+							<h2> {{ $data->name }}</h2>
 						</a>
 						<span>
 							Tekan untuk melihat 3D Model Terumbu Karang <br>
-							Berikut penjelasan mengenai terumbu karang Sideropora Mordax:</span>
+							Berikut penjelasan mengenai terumbu karang Sideropora Mordax:
+						</span>
 					</div>
 
-
-					<!-- Popular Images Slider -->
-					<div class="col mx-auto d-block text-center">
-						<!-- Images Slider -->
+					<div class="col-12 col-lg-6 mx-auto text-center mb-5">
 						<div>
-							<ul>
-								<li class="img-responsive">
-									@if ($data->image)
-										<a href="{{ route('object3D', $data->id) }}">
-											<img src="{{ asset('storage/products/' . $data->image) }}" alt="Product Image" class="product-image">
-										@else
-											<div class="product-image bg-light d-flex align-items-center justify-content-center">
-												<i class="fas fa-image text-muted"></i>
-											</div>
-									@endif
-									</a>
-								</li>
-							</ul>
+							@if ($data->image)
+								<a href="{{ route('object3D', $data->id) }}">
+									<img src="{{ asset('storage/products/' . $data->image) }}" alt="Product Image"
+										class="product-image img-fluid rounded shadow">
+								</a>
+							@else
+								<div class="product-image bg-light d-flex align-items-center justify-content-center border rounded"
+									style="min-height: 300px;">
+									<i class="fas fa-image text-muted fa-3x"></i>
+								</div>
+							@endif
 						</div>
 					</div>
 				</div>
 			</div>
 
-			<!--======= PRODUCT DESCRIPTION =========-->
-			<div class="item-decribe">
-				<!-- Nav tabs -->
-				<ul class="nav nav-tabs animate fadeInUp" data-wow-delay="0.4s" role="tablist">
-					<li role="presentation" class="active"><a href="#descr" role="tab" data-toggle="tab">DESCRIPTION</a></li>
-					<li role="presentation"><a href="#tags" role="tab" data-toggle="tab">INFORMATION</a></li>
+			<div class="item-decribe mt-5">
+				<ul class="nav nav-tabs" id="productTabs" role="tablist">
+					<li class="nav-item" role="presentation">
+						<a class="nav-link active" id="descr-tab" data-bs-toggle="tab" data-bs-target="#descr" type="button"
+							role="tab" aria-controls="descr" aria-selected="true">DESCRIPTION</a>
+					</li>
+					<li class="nav-item" role="presentation">
+						<a class="nav-link" id="tags-tab" data-bs-toggle="tab" data-bs-target="#tags" type="button" role="tab"
+							aria-controls="tags" aria-selected="false">INFORMATION</a>
+					</li>
 				</ul>
 
-				<!-- Tab panes -->
-				<div class="tab-content animate fadeInUp" data-wow-delay="0.4s">
-					<!-- DESCRIPTION -->
-					<div role="tabpanel" class="tab-pane fade in active" id="descr">
-						{{ $data->description }}
+				<div class="tab-content border border-top-0 p-3">
+					<div class="tab-pane fade show active" id="descr" role="tabpanel" aria-labelledby="descr-tab">
+						{!! $data->description !!}
 					</div>
 
-					<!-- TAGS -->
-					<div role="tabpanel" class="tab-pane fade" id="tags">
-						<p>
-							{{ $data->information }}
-						</p>
+					<div class="tab-pane fade" id="tags" role="tabpanel" aria-labelledby="tags-tab">
+						{!! $data->information !!}
 					</div>
 				</div>
 			</div>
