@@ -21,7 +21,7 @@ use App\Http\Controllers\ProductController;
 
 Route::get('/', function () {
     return view('home');
-});
+})->name('home');
 
 Route::get('/data', function () {
     return redirect()->route('data.index');
