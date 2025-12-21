@@ -202,7 +202,7 @@ class ProductController extends Controller
         $frontendPath = "http://localhost:8000/3dObject/{$id}"; // or slug if you use slugs
 
         // Generate QR code image and save to storage/app/public/qrcodes/
-        $qrCodePath = "qrcodes/inventory_{$id}.png";
+        $qrCodePath = "qrcodes/products_{$id}.png";
         // http://localhost:8000/3dObject/52
         Storage::disk('public')->put($qrCodePath, QrCode::format('png')->size(300)->generate($frontendPath));
     }

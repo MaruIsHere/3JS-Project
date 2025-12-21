@@ -20,7 +20,7 @@ use App\Http\Controllers\ProductController;
 // });
 
 Route::get('/', function () {
-    return redirect()->route('data.index');
+    return view('home');
 });
 
 Route::get('/data', function () {
@@ -32,5 +32,9 @@ Route::get('/3dObject/{id}', [DataController::class, 'data3d'])->name('object3D'
 Route::get('/generate-qrcode/{id}', [ProductController::class, 'generate']);
 
 Route::resource('products', ProductController::class);
+
+Route::get('/about', function () {
+    return view('about');
+})->name('about');
 
 Route::resource('data', DataController::class);
