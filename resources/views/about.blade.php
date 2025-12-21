@@ -6,7 +6,7 @@
 	<div class="about-page">
 
 		<section class="bg-primary text-white py-5 mb-5"
-			style="background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('{{ asset('images/terumbu karang.avif') }}'); background-size: cover; background-position: center;">
+			style="background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('{{ asset('images/terumbu karang.jpg') }}'); background-size: cover; background-position: center;">
 			<div class="container py-5 text-center">
 				<h1 class="display-4 fw-bold animate__animated animate__fadeInDown">Tentang Kami</h1>
 				<p class="lead animate__animated animate__fadeInUp">Membawa ekosistem bawah laut ke ujung jari Anda melalui teknologi
