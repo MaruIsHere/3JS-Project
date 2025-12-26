@@ -68,7 +68,7 @@ export default defineConfig({
                 "resources/js/sideropora_mordax.js",
                 "resources/js/own-menu.js",
                 "resources/js/owl.carousel.min.js",
-                "resources/js/resources/js/smooth-scroll.js",
+                "resources/js/smooth-scroll.js",
                 "resources/js/modernizr.js",
                 "resources/js/main.js",
                 "resources/js/jquery.lighter.js",
