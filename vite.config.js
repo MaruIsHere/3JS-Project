@@ -74,6 +74,7 @@ export default defineConfig({
                 "resources/js/jquery.lighter.js",
                 "resources/js/jquery.fatNav.min.js",
                 "resources/js/jquery-1.11.3.min.js",
+                "resources/js/bootstrap.bundle.min.js",
             ],
             refresh: true,
         }),

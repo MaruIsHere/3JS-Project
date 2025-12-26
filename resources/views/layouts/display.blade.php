@@ -6,11 +6,11 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="description" content="">
-	<meta name="author" content="M_Adnan">
+	<meta name="author" content="Atheo">
 	<title>@yield('title', 'Object 3D')</title>
 	<link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
 
-	@vite(['resources/css/animate.css', 'resources/css/bootstrap.min.css', 'resources/css/font-awesome.min.css', 'resources/css/ionicons.min.css', 'resources/css/main.css', 'resources/js/bootstrap.min.js'])
+	@vite(['resources/css/animate.css', 'resources/css/bootstrap.min.css', 'resources/css/font-awesome.min.css', 'resources/css/ionicons.min.css', 'resources/css/main.css', 'resources/js/bootstrap.min.js', 'resources/js/bootstrap.bundle.min.js'])
 
 	<style>
 		/* CSS Wajib: Pastikan tidak ada margin default yang menyebabkan jarak atas */
