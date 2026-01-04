@@ -1,108 +1,122 @@
-//Import the THREE.js library
+// ================= IMPORT THREE.JS =================
 import * as THREE from "https://cdn.skypack.dev/three@0.129.0/build/three.module.js";
-// To allow for the camera to move around the scene
 import { OrbitControls } from "https://cdn.skypack.dev/three@0.129.0/examples/jsm/controls/OrbitControls.js";
-// To allow for importing the .gltf file
 import { GLTFLoader } from "https://cdn.skypack.dev/three@0.129.0/examples/jsm/loaders/GLTFLoader.js";
+import { CSS2DRenderer, CSS2DObject } from 
+"https://cdn.skypack.dev/three@0.129.0/examples/jsm/renderers/CSS2DRenderer.js";
 
-//Set which object to render (ID wadah HTML)
+// ================= SET OBJEK =================
 let objToRender = "scolymia_australis";
 
-// 1. AMBIL ELEMEN WADAH DAN DIMENSINYA
+// ================= AMBIL WADAH =================
 const container = document.getElementById(objToRender);
 const containerWidth = container.clientWidth;
 const containerHeight = container.clientHeight;
 
-//Create a Three.JS Scene
+// ================= SCENE & CAMERA =================
 const scene = new THREE.Scene();
 
-//create a new camera with positions and angles
 const camera = new THREE.PerspectiveCamera(
     75,
-    containerWidth / containerHeight, // Gunakan dimensi wadah
+    containerWidth / containerHeight,
     0.1,
     1000
 );
 
-//Keep track of the mouse position relatif terhadap wadah
+// ================= MOUSE & IDLE =================
 let mouseX = containerWidth / 2;
 let mouseY = containerHeight / 2;
 
-//Keep the 3D object on a global variable
-let object;
+let lastMouseMoveTime = Date.now();
+const idleDelay = 1000;
+const autoRotateSpeed = 0.005;
 
-//OrbitControls allow the camera to move around the scene
+// ================= GLOBAL =================
+let object;
 let controls;
 
-//Instantiate a loader for the .gltf file
+// ================= GLTF LOADER =================
 const loader = new GLTFLoader();
+loader.load(`/models/${objToRender}/scene.gltf`, (gltf) => {
+    object = gltf.scene;
+    scene.add(object);
 
-//Load the file
-loader.load(
-    `/models/${objToRender}/scene.gltf`,
-    function (gltf) {
-        //If the file is loaded, add it to the scene
-        object = gltf.scene;
-        scene.add(object);
-    },
-    function (xhr) {
-        //While it is loading, log the progress
-        console.log((xhr.loaded / xhr.total) * 100 + "% loaded");
-    },
-    function (error) {
-        //If there is an error, log it
-        console.error(error);
-    }
-);
+    // ===== POPUP INFO 3D =====
+    const labelDiv = document.createElement("div");
+    labelDiv.className = "label3d";
+    labelDiv.innerHTML = `
+        <strong>Scolymia australis</strong><br/>
+        Karang keras pembentuk terumbu<br/>
+        Habitat: Perairan tropis
+    `;
 
-//Instantiate a new renderer and set its size
-const renderer = new THREE.WebGLRenderer({ alpha: true });
-renderer.setSize(containerWidth, containerHeight); // Sesuai ukuran wadah
+    const label = new CSS2DObject(labelDiv);
+    label.position.set(0, -0.08, 0); // posisi popup di atas objek
+    object.add(label);
+});
 
-//Add the renderer to the DOM
+// ================= RENDERER =================
+const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
+renderer.setSize(containerWidth, containerHeight);
 container.appendChild(renderer.domElement);
 
-//Set how far the camera will be from the 3D model
-camera.position.z = objToRender === "scolymia_australis" ? 0.3 : 500;
+// ================= LABEL RENDERER =================
+const labelRenderer = new CSS2DRenderer();
+labelRenderer.setSize(containerWidth, containerHeight);
+labelRenderer.domElement.style.position = "absolute";
+labelRenderer.domElement.style.top = "0";
+labelRenderer.domElement.style.pointerEvents = "none";
+container.appendChild(labelRenderer.domElement);
 
-//Add lights to the scene
-const topLight = new THREE.DirectionalLight(0xffffff, 1);
-topLight.position.set(500, 500, 500);
-topLight.castShadow = true;
-scene.add(topLight);
+// ================= CAMERA =================
+camera.position.z = 0.3;
 
-const ambientLight = new THREE.AmbientLight(
-    0x333333,
-    objToRender === "scolymia_australis" ? 8 : 1
-);
-scene.add(ambientLight);
+// ================= LIGHTING =================
+scene.add(new THREE.DirectionalLight(0xffffff, 1).position.set(5, 5, 5));
+scene.add(new THREE.AmbientLight(0x333333, 8));
 
-//This adds controls to the camera
-if (objToRender === "scolymia_australis") {
-    controls = new OrbitControls(camera, renderer.domElement);
-}
+// ================= ORBIT =================
+controls = new OrbitControls(camera, renderer.domElement);
+controls.enableDamping = true;
 
-//Render the scene
+// ================= MOUSE =================
+container.addEventListener("mousemove", (e) => {
+    const rect = container.getBoundingClientRect();
+    mouseX = e.clientX - rect.left;
+    mouseY = e.clientY - rect.top;
+    lastMouseMoveTime = Date.now();
+});
+
+// ================= ANIMATE =================
 function animate() {
     requestAnimationFrame(animate);
 
-    // Animasi rotasi halus berdasarkan posisi mouse di kontainer
-    if (object && objToRender === "scolymia_australis") {
-        object.rotation.y = -3 + (mouseX / containerWidth) * 3;
-        object.rotation.x = -1.2 + (mouseY * 2.5) / containerHeight;
+    if (object) {
+        const idle = Date.now() - lastMouseMoveTime > idleDelay;
+
+        if (idle) {
+            object.rotation.y += autoRotateSpeed;
+        } else {
+            object.rotation.y = -3 + (mouseX / containerWidth) * 3;
+            object.rotation.x = -1.2 + (mouseY * 2.5) / containerHeight;
+        }
     }
+
+    controls.update();
     renderer.render(scene, camera);
+    labelRenderer.render(scene, camera);
 }
 
-//Listener untuk resize agar tetap responsif di dalam kontainer
-window.addEventListener("resize", function () {
-    const newWidth = container.clientWidth;
-    const newHeight = container.clientHeight;
+// ================= RESIZE =================
+window.addEventListener("resize", () => {
+    const w = container.clientWidth;
+    const h = container.clientHeight;
 
-    camera.aspect = newWidth / newHeight;
+    camera.aspect = w / h;
     camera.updateProjectionMatrix();
-    renderer.setSize(newWidth, newHeight);
+    renderer.setSize(w, h);
+    labelRenderer.setSize(w, h);
 });
 
-//Mulai render
+// ================= START =================
 animate();

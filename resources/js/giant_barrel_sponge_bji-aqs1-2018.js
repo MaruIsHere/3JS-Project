@@ -1,110 +1,122 @@
-//Import the THREE.js library
+// ================= IMPORT THREE.JS =================
 import * as THREE from "https://cdn.skypack.dev/three@0.129.0/build/three.module.js";
-// To allow for the camera to move around the scene
 import { OrbitControls } from "https://cdn.skypack.dev/three@0.129.0/examples/jsm/controls/OrbitControls.js";
-// To allow for importing the .gltf file
 import { GLTFLoader } from "https://cdn.skypack.dev/three@0.129.0/examples/jsm/loaders/GLTFLoader.js";
+import { CSS2DRenderer, CSS2DObject } from 
+"https://cdn.skypack.dev/three@0.129.0/examples/jsm/renderers/CSS2DRenderer.js";
 
-//Create a Three.JS Scene
+// ================= SET OBJEK =================
+let objToRender = "giant_barrel_sponge_bji-aqs1-2018";
+
+// ================= AMBIL WADAH =================
+const container = document.getElementById(objToRender);
+const containerWidth = container.clientWidth;
+const containerHeight = container.clientHeight;
+
+// ================= SCENE & CAMERA =================
 const scene = new THREE.Scene();
-//create a new camera with positions and angles
+
 const camera = new THREE.PerspectiveCamera(
     75,
-    window.innerWidth / window.innerHeight,
+    containerWidth / containerHeight,
     0.1,
     1000
 );
 
-//Keep track of the mouse position, so we can make the eye move
-let mouseX = window.innerWidth / 2;
-let mouseY = window.innerHeight / 2;
+// ================= MOUSE & IDLE =================
+let mouseX = containerWidth / 2;
+let mouseY = containerHeight / 2;
 
-//Keep the 3D object on a global variable so we can access it later
+let lastMouseMoveTime = Date.now();
+const idleDelay = 1000;
+const autoRotateSpeed = 0.005;
+
+// ================= GLOBAL =================
 let object;
-
-//OrbitControls allow the camera to move around the scene
 let controls;
 
-//Set which object to render
-let objToRender = "giant_barrel_sponge_bji-aqs1-2018";
-
-//Instantiate a loader for the .gltf file
+// ================= GLTF LOADER =================
 const loader = new GLTFLoader();
+loader.load(`/models/${objToRender}/scene.gltf`, (gltf) => {
+    object = gltf.scene;
+    scene.add(object);
 
-//Load the file
-loader.load(
-    `/models/${objToRender}/scene.gltf`,
-    function (gltf) {
-        //If the file is loaded, add it to the scene
-        object = gltf.scene;
-        scene.add(object);
-    },
-    function (xhr) {
-        //While it is loading, log the progress
-        console.log((xhr.loaded / xhr.total) * 100 + "% loaded");
-    },
-    function (error) {
-        //If there is an error, log it
-        console.error(error);
-    }
-);
+    // ===== POPUP INFO 3D =====
+    const labelDiv = document.createElement("div");
+    labelDiv.className = "label3d";
+    labelDiv.innerHTML = `
+        <strong>Giant Barrel Sponge</strong><br/>
+        Karang keras pembentuk terumbu<br/>
+        Habitat: Perairan tropis
+    `;
 
-//Instantiate a new renderer and set its size
-const renderer = new THREE.WebGLRenderer({ alpha: true }); //Alpha: true allows for the transparent background
-renderer.setSize(window.innerWidth, window.innerHeight);
-
-//Add the renderer to the DOM
-document
-    .getElementById("giant_barrel_sponge_bji-aqs1-2018")
-    .appendChild(renderer.domElement);
-
-//Set how far the camera will be from the 3D model
-camera.position.z =
-    objToRender === "giant_barrel_sponge_bji-aqs1-2018" ? 5 : 500;
-
-//Add lights to the scene, so we can actually see the 3D model
-const topLight = new THREE.DirectionalLight(0xffffff, 1); // (color, intensity)
-topLight.position.set(500, 500, 500); //top-left-ish
-topLight.castShadow = true;
-scene.add(topLight);
-
-const ambientLight = new THREE.AmbientLight(
-    0x333333,
-    objToRender === "giant_barrel_sponge_bji-aqs1-2018" ? 8 : 1
-);
-scene.add(ambientLight);
-
-//This adds controls to the camera, so we can rotate / zoom it with the mouse
-if (objToRender === "giant_barrel_sponge_bji-aqs1-2018") {
-    controls = new OrbitControls(camera, renderer.domElement);
-}
-
-//Render the scene
-function animate() {
-    requestAnimationFrame(animate);
-    //Here we could add some code to update the scene, adding some automatic movement
-
-    //Make the eye move
-    if (object && objToRender === "giant_barrel_sponge_bji-aqs1-2018") {
-        //I've played with the constants here until it looked good
-        object.rotation.y = -3 + (mouseX / window.innerWidth) * 3;
-        object.rotation.x = -1.2 + (mouseY * 2.5) / window.innerHeight;
-    }
-    renderer.render(scene, camera);
-}
-
-//Add a listener to the window, so we can resize the window and the camera
-window.addEventListener("resize", function () {
-    camera.aspect = window.innerWidth / window.innerHeight;
-    camera.updateProjectionMatrix();
-    renderer.setSize(window.innerWidth, window.innerHeight);
+    const label = new CSS2DObject(labelDiv);
+    label.position.set(0, -0.08, 0); // posisi popup di atas objek
+    object.add(label);
 });
 
-//add mouse position listener, so we can make the eye move
-//document.onmousemove = (e) => {
-// mouseX = e.clientX;
-// mouseY = e.clientY;
-//}
+// ================= RENDERER =================
+const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
+renderer.setSize(containerWidth, containerHeight);
+container.appendChild(renderer.domElement);
 
-//Start the 3D rendering
+// ================= LABEL RENDERER =================
+const labelRenderer = new CSS2DRenderer();
+labelRenderer.setSize(containerWidth, containerHeight);
+labelRenderer.domElement.style.position = "absolute";
+labelRenderer.domElement.style.top = "0";
+labelRenderer.domElement.style.pointerEvents = "none";
+container.appendChild(labelRenderer.domElement);
+
+// ================= CAMERA =================
+camera.position.z = 0.3;
+
+// ================= LIGHTING =================
+scene.add(new THREE.DirectionalLight(0xffffff, 1).position.set(5, 5, 5));
+scene.add(new THREE.AmbientLight(0x333333, 8));
+
+// ================= ORBIT =================
+controls = new OrbitControls(camera, renderer.domElement);
+controls.enableDamping = true;
+
+// ================= MOUSE =================
+container.addEventListener("mousemove", (e) => {
+    const rect = container.getBoundingClientRect();
+    mouseX = e.clientX - rect.left;
+    mouseY = e.clientY - rect.top;
+    lastMouseMoveTime = Date.now();
+});
+
+// ================= ANIMATE =================
+function animate() {
+    requestAnimationFrame(animate);
+
+    if (object) {
+        const idle = Date.now() - lastMouseMoveTime > idleDelay;
+
+        if (idle) {
+            object.rotation.y += autoRotateSpeed;
+        } else {
+            object.rotation.y = -3 + (mouseX / containerWidth) * 3;
+            object.rotation.x = -1.2 + (mouseY * 2.5) / containerHeight;
+        }
+    }
+
+    controls.update();
+    renderer.render(scene, camera);
+    labelRenderer.render(scene, camera);
+}
+
+// ================= RESIZE =================
+window.addEventListener("resize", () => {
+    const w = container.clientWidth;
+    const h = container.clientHeight;
+
+    camera.aspect = w / h;
+    camera.updateProjectionMatrix();
+    renderer.setSize(w, h);
+    labelRenderer.setSize(w, h);
+});
+
+// ================= START =================
 animate();
