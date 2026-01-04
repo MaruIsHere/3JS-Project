@@ -39,6 +39,17 @@
 					</div>
 				</div>
 			</div>
+			<div class="d-grid gap-2 col-md-8 mx-auto">
+				<a href="{{ route('object3D', $data->id) }}"
+					class="btn btn-primary btn-lg shadow d-flex align-items-center justify-content-center py-3">
+					<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
+						class="bi bi-box-seam me-2" viewBox="0 0 16 16">
+						<path
+							d="M8.186 1.113a.5.5 0 0 0-.372 0L1.846 3.5l2.404.961L10.404 2zm3.564 1.426L5.596 5 8 5.961 14.154 3.5zm.325 1.483L9 5.356V15l5.154-2.061a.5.5 0 0 0 .346-.464V3.935a.5.5 0 0 0-.5-.5zM8 15V5.356L2.846 3.294a.5.5 0 0 0-.346.464V12.475a.5.5 0 0 0 .346.464z" />
+					</svg>
+					<strong>LIHAT MODEL 3D INTERAKTIF</strong>
+				</a>
+			</div>
 
 			<div class="item-decribe mt-5">
 				<ul class="nav nav-tabs" id="productTabs" role="tablist">
