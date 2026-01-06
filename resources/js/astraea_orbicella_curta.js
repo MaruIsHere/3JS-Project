@@ -46,8 +46,7 @@ loader.load(`/models/${objToRender}/scene.gltf`, (gltf) => {
     labelDiv.className = "label3d";
     labelDiv.innerHTML = `
         <strong>Astraea orbicella curta</strong><br/>
-        Karang keras pembentuk terumbu<br/>
-        Habitat: Perairan tropis
+   Astraea orbicella curta adalah nama taksonomi lama untuk salah satu bentuk karang otak masif dari kawasan Atlantik–Karibia. Dalam klasifikasi modern, genus Astraea telah direvisi, dan spesies ini kini umumnya dimasukkan ke dalam genus Orbicella (famili Merulinidae). Nama curta merujuk pada bentuk koloni yang lebih pendek, kompak, dan membulat dibandingkan variasi lain dalam kompleks Orbicella.
     `;
 
     const label = new CSS2DObject(labelDiv);

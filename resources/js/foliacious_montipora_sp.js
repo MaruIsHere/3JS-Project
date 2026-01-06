@@ -46,8 +46,7 @@ loader.load(`/models/${objToRender}/scene.gltf`, (gltf) => {
     labelDiv.className = "label3d";
     labelDiv.innerHTML = `
         <strong>Foliacious Montipora sp</strong><br/>
-        Karang keras pembentuk terumbu<br/>
-        Habitat: Perairan tropis
+  Ciri Morfologi Bentuk koloni: Lembaran tipis, melebar, sering bertumpuk atau berlipat Tepi koloni: Bergelombang atau bergerigi halus Permukaan: Halus hingga sedikit bergranula Korallit: Sangat kecil, dangkal, sulit dibedakan Tekstur rangka: Tipis namun keras Warna: Cokelat, krem, hijau, ungu pucat, hingga kemerahan (saat hidup) Habitat dan Persebaran Habitat: Lereng terumbu (reef slope) dan terumbu bagian dalam Kedalaman: sekitar 5–30 meter Lingkungan: Cahaya sedang, arus lemah–sedang Persebaran: Indo-Pasifik, termasuk perairan Indonesia
     `;
 
     const label = new CSS2DObject(labelDiv);
@@ -69,7 +68,7 @@ labelRenderer.domElement.style.pointerEvents = "none";
 container.appendChild(labelRenderer.domElement);
 
 // ================= CAMERA =================
-camera.position.z = 0.3;
+camera.position.z = 70;
 
 // ================= LIGHTING =================
 scene.add(new THREE.DirectionalLight(0xffffff, 1).position.set(5, 5, 5));

@@ -46,8 +46,7 @@ loader.load(`/models/${objToRender}/scene.gltf`, (gltf) => {
     labelDiv.className = "label3d";
     labelDiv.innerHTML = `
         <strong>Porites monticulosa</strong><br/>
-        Karang keras pembentuk terumbu<br/>
-        Habitat: Perairan tropis
+  Porites monticulosa adalah spesies karang keras (ordo Scleractinia) dari famili Poritidae. Karang ini umumnya membentuk koloni masif hingga menggunduk (montikular) dengan permukaan berbenjol-benjol kecil. Porites dikenal sebagai karang yang sangat tahan terhadap kondisi lingkungan ekstrem dan sering mendominasi terumbu karang tropis.
     `;
 
     const label = new CSS2DObject(labelDiv);

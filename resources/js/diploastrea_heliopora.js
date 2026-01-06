@@ -46,8 +46,7 @@ loader.load(`/models/${objToRender}/scene.gltf`, (gltf) => {
     labelDiv.className = "label3d";
     labelDiv.innerHTML = `
         <strong>Diploastrea heliopora</strong><br/>
-        Karang keras pembentuk terumbu<br/>
-        Habitat: Perairan tropis
+ Diploastrea heliopora pertama kali dideskripsikan pada tahun 1816 oleh naturalis Prancis Jean-Baptiste Lamarck sebagai Astrea heliopora . Kemudian dipindahkan ke genus baru Diploastrea oleh G. Matthai pada tahun 1914. Diploastrea heliopora dimasukkan ke dalam famili Agathiphylliidae oleh TW Vaughan dan JW Wells pada tahun 1943. Ini adalah satu-satunya anggota famili yang masih hidup, yang juga mencakup empat spesies fosil. Pada tahun 1956, Wells memindahkan genus tersebut ke Faviidae , dan hal ini telah diterima secara luas. Namun, studi molekuler dan filogenetik terbaru menunjukkan bahwa karang ini memiliki ciri-ciri unik tertentu, dan famili terpisah, Diploastreidae, telah dikembalikan. Ini adalah satu-satunya anggota famili yang masih hidup.
     `;
 
     const label = new CSS2DObject(labelDiv);

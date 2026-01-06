@@ -46,8 +46,7 @@ loader.load(`/models/${objToRender}/scene.gltf`, (gltf) => {
     labelDiv.className = "label3d";
     labelDiv.innerHTML = `
         <strong>Scleractinina coral indet</strong><br/>
-        Karang keras pembentuk terumbu<br/>
-        Habitat: Perairan tropis
+ Scleractinia juga disebut sebagai karang batu (karang berbatu) atau karang keras. Merupakan hewan laut di filum Cnidaria yang membangun kerangka keras untuk diri mereka sendiri. Memiliki kemiripan bentuk dengan anemon laut mini dan mereka dipersenjatai dengan sel menyengat yang dikenal sebagai cnidocytes. Karang yang satu ini banyak ditemukan di perairan tropis yang dengan air jernih dan dangkal dengan sinar matahari cahayanya dapat menembus, walaupun tumbuh pada semua samudra di dunia.
     `;
 
     const label = new CSS2DObject(labelDiv);
@@ -69,7 +68,7 @@ labelRenderer.domElement.style.pointerEvents = "none";
 container.appendChild(labelRenderer.domElement);
 
 // ================= CAMERA =================
-camera.position.z = 0.3;
+camera.position.z = 1;
 
 // ================= LIGHTING =================
 scene.add(new THREE.DirectionalLight(0xffffff, 1).position.set(5, 5, 5));

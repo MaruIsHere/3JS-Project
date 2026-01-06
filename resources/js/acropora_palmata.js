@@ -46,8 +46,7 @@ loader.load(`/models/${objToRender}/scene.gltf`, (gltf) => {
     labelDiv.className = "label3d";
     labelDiv.innerHTML = `
         <strong>Acropora palmata</strong><br/>
-        Karang keras pembentuk terumbu<br/>
-        Habitat: Perairan tropis
+  Karang Elkhorn (Acropora palmata) adalah karang yang tumbuh cepat dan mudah dikenali dari struktur percabangannya yang kompleks, terdiri dari koloni-koloni padat yang membentuk rumpun yang saling terkait. Struktur ini membuatnya menyerupai tanduk rusa. Karang ini sebagian besar ditemukan di Karibia dan Bahama, sangat dekat dengan garis pantai. Akibatnya, karang ini mengalami kerusakan besar akibat polusi manusia dan pemutihan karang. Karang Elkhorn memiliki tubuh yang besar, dan cabangnya kokoh dan tebal, yang dapat berwarna kuning hingga kuning kecoklatan dengan ujung putih. Karang ini dapat bereproduksi secara seksual atau aseksual. Karang ini dianggap sebagai karang keras.
     `;
 
     const label = new CSS2DObject(labelDiv);

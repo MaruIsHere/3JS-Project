@@ -46,8 +46,7 @@ loader.load(`/models/${objToRender}/scene.gltf`, (gltf) => {
     labelDiv.className = "label3d";
     labelDiv.innerHTML = `
         <strong>Corallium sp</strong><br/>
-        Karang keras pembentuk terumbu<br/>
-        Habitat: Perairan tropis
+Corallium sp. merujuk pada karang merah (precious coral) dari genus Corallium, termasuk dalam kelas Anthozoa, subkelas Octocorallia, famili Coralliidae. Penulisan sp. menunjukkan bahwa spesies pastinya belum ditentukan. Genus ini sangat dikenal karena rangka berwarna merah hingga merah muda yang bernilai tinggi secara ekonomi dan historis.
     `;
 
     const label = new CSS2DObject(labelDiv);

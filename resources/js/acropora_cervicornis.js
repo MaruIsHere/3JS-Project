@@ -46,8 +46,7 @@ loader.load(`/models/${objToRender}/scene.gltf`, (gltf) => {
     labelDiv.className = "label3d";
     labelDiv.innerHTML = `
         <strong>Acropora cervicornis</strong><br/>
-        Karang keras pembentuk terumbu<br/>
-        Habitat: Perairan tropis
+     Nama : Acropora Cervicornis Lokasi Geografis : Perairan Karibia dan Great Barrier Reef of Australia Habitat : Perairan laut hangat yang dekat dengan permukaan Struktur : Memiliki cabang seperti tanduk dengan tentakel dalam kelipatan tiga
     `;
 
     const label = new CSS2DObject(labelDiv);

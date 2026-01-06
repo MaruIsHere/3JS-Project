@@ -46,8 +46,7 @@ loader.load(`/models/${objToRender}/scene.gltf`, (gltf) => {
     labelDiv.className = "label3d";
     labelDiv.innerHTML = `
         <strong>Goniastrea favulus</strong><br/>
-        Karang keras pembentuk terumbu<br/>
-        Habitat: Perairan tropis
+        Goniastrea favulus merupakan spesies asli dari wilayah Indo-Pasifik. Jangkauannya meliputi Madagaskar utara dan pantai timur Afrika hingga Kepulauan Maladewa, Asia Tenggara, Jepang, Australia, dan gugusan pulau di Samudra Pasifik. Spesies ini ditemukan di zona pasang surut dan bawah pasang turun di lereng terumbu depan dan belakang, serta di laguna. submeandroid. Dindingnya tipis, kolumelanya kecil dan lobus paliformisnya berkembang dengan baik. Warna: Hijau kusam atau coklat. Spesies Serupa: Goniastrea retiformis, yang memiliki struktur koralit serupa tetapi selalu cerioid. Habitat: Biasanya intertidal atau subtidal tetapi juga terdapat di berbagai habitat lainnya. Kelimpahan: Jarang. Catatan Taksonomi: Mungkin suatu spesies kompleks."
     `;
 
     const label = new CSS2DObject(labelDiv);

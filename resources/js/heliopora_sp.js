@@ -46,8 +46,7 @@ loader.load(`/models/${objToRender}/scene.gltf`, (gltf) => {
     labelDiv.className = "label3d";
     labelDiv.innerHTML = `
         <strong>Heliopora sp</strong><br/>
-        Karang keras pembentuk terumbu<br/>
-        Habitat: Perairan tropis
+Karang biru (Heliopora coerulea) adalah spesies karang kolonial. Ini adalah satu-satunya oktokoral yang diketahui menghasilkan kerangka masif. Kerangka ini terbentuk dari aragonit, mirip dengan kerangka scleractinia. Polip individu hidup di dalam tabung di dalam kerangka dan dihubungkan oleh lapisan tipis jaringan di bagian luar kerangka.
     `;
 
     const label = new CSS2DObject(labelDiv);
@@ -69,7 +68,7 @@ labelRenderer.domElement.style.pointerEvents = "none";
 container.appendChild(labelRenderer.domElement);
 
 // ================= CAMERA =================
-camera.position.z = 0.3;
+camera.position.z = 25;
 
 // ================= LIGHTING =================
 scene.add(new THREE.DirectionalLight(0xffffff, 1).position.set(5, 5, 5));

@@ -46,8 +46,7 @@ loader.load(`/models/${objToRender}/scene.gltf`, (gltf) => {
     labelDiv.className = "label3d";
     labelDiv.innerHTML = `
         <strong>Agaricia speciosa</strong><br/>
-        Karang keras pembentuk terumbu<br/>
-        Habitat: Perairan tropis
+ Agaricia speciosa adalah karang keras (ordo Scleractinia) dari famili Agariciidae yang dikenal sebagai karang daun (lettuce/plate coral). Spesies ini membentuk lembaran tipis atau koloni foliose dengan pola alur radial yang khas, menjadikannya mudah dikenali dalam genus Agaricia.
     `;
 
     const label = new CSS2DObject(labelDiv);

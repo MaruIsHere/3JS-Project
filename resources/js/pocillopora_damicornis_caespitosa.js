@@ -46,8 +46,7 @@ loader.load(`/models/${objToRender}/scene.gltf`, (gltf) => {
     labelDiv.className = "label3d";
     labelDiv.innerHTML = `
         <strong>Pocillopora damicornis caespitosa</strong><br/>
-        Karang keras pembentuk terumbu<br/>
-        Habitat: Perairan tropis
+        Pocillopora damicornis caespitosa merujuk pada subspesies dari karang kembang kol atau karang renda, Pocillopora damicornis, yang memiliki ciri pertumbuhan membentuk rumpun padat (caespitosa) dengan percabangan rapat dan kecil, berbeda dengan varietas lain yang mungkin lebih terbuka, menunjukkan adaptasi terhadap lingkungan terumbu yang lebih dinamis, dan merupakan salah satu spesies karang paling umum di Indo-Pasifik, dikenal karena warnanya yang bervariasi dan kemampuannya beradaptasi di berbagai kedalaman
     `;
 
     const label = new CSS2DObject(labelDiv);

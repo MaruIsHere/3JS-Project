@@ -46,8 +46,7 @@ loader.load(`/models/${objToRender}/scene.gltf`, (gltf) => {
     labelDiv.className = "label3d";
     labelDiv.innerHTML = `
         <strong>Heliopora coerulea</strong><br/>
-        Karang keras pembentuk terumbu<br/>
-        Habitat: Perairan tropis
+Heliopora coerulea dikenal sebagai karang biru (blue coral), merupakan satu-satunya spesies hidup dari famili Helioporidae dan termasuk dalam kelas Octocorallia (bukan karang keras Scleractinia). Spesies ini sangat khas karena memiliki rangka berwarna biru keabu-abuan akibat kandungan mineral besi dalam kalsium karbonatnya.
     `;
 
     const label = new CSS2DObject(labelDiv);
@@ -69,7 +68,7 @@ labelRenderer.domElement.style.pointerEvents = "none";
 container.appendChild(labelRenderer.domElement);
 
 // ================= CAMERA =================
-camera.position.z = 0.3;
+camera.position.z = 0.5;
 
 // ================= LIGHTING =================
 scene.add(new THREE.DirectionalLight(0xffffff, 1).position.set(5, 5, 5));

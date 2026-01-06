@@ -46,8 +46,7 @@ loader.load(`/models/${objToRender}/scene.gltf`, (gltf) => {
     labelDiv.className = "label3d";
     labelDiv.innerHTML = `
         <strong>Elkhorn Coral (Acropora palmata)</strong><br/>
-        Karang keras pembentuk terumbu<br/>
-        Habitat: Perairan tropis
+     Karang tanduk rusa menghasilkan struktur keras seperti tanduk yang terbuat dari kalsium karbonat. Struktur ini dapat memiliki tinggi lebih dari 2 meter (> 6 kaki) dan lebar 13 meter (43 kaki) serta berwarna kuning kecoklatan kusam.
     `;
 
     const label = new CSS2DObject(labelDiv);
@@ -69,7 +68,7 @@ labelRenderer.domElement.style.pointerEvents = "none";
 container.appendChild(labelRenderer.domElement);
 
 // ================= CAMERA =================
-camera.position.z = 0.3;
+camera.position.z = 4;
 
 // ================= LIGHTING =================
 scene.add(new THREE.DirectionalLight(0xffffff, 1).position.set(5, 5, 5));

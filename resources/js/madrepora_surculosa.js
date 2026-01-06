@@ -46,8 +46,7 @@ loader.load(`/models/${objToRender}/scene.gltf`, (gltf) => {
     labelDiv.className = "label3d";
     labelDiv.innerHTML = `
         <strong>Madrepora surculosa</strong><br/>
-        Karang keras pembentuk terumbu<br/>
-        Habitat: Perairan tropis
+        Madrepora surculosa adalah spesies karang keras (ordo Scleractinia) yang termasuk dalam famili Oculinidae. Karang ini memiliki bentuk koloni bercabang halus dan ramping, sekilas mirip Acropora, namun secara taksonomi berbeda. Madrepora dikenal sebagai karang dengan rangka yang relatif rapuh dan sering ditemukan di perairan yang lebih dalam atau bercahaya rendah.
     `;
 
     const label = new CSS2DObject(labelDiv);

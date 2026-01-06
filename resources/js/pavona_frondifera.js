@@ -46,8 +46,7 @@ loader.load(`/models/${objToRender}/scene.gltf`, (gltf) => {
     labelDiv.className = "label3d";
     labelDiv.innerHTML = `
         <strong>Pavona frondifera</strong><br/>
-        Karang keras pembentuk terumbu<br/>
-        Habitat: Perairan tropis
+       Pavona frondifera adalah spesies karang keras (ordo Scleractinia) dari famili Agariciidae. Karang ini dikenal dengan bentuk koloni lembaran tipis hingga menyerupai daun (frondose) yang tumbuh bertumpuk dan berlekuk, sehingga tampak seperti kipas atau dedaunan di dasar terumbu.
     `;
 
     const label = new CSS2DObject(labelDiv);
@@ -69,7 +68,7 @@ labelRenderer.domElement.style.pointerEvents = "none";
 container.appendChild(labelRenderer.domElement);
 
 // ================= CAMERA =================
-camera.position.z = 0.3;
+camera.position.z = 15;
 
 // ================= LIGHTING =================
 scene.add(new THREE.DirectionalLight(0xffffff, 1).position.set(5, 5, 5));

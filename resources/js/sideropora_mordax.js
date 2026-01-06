@@ -46,8 +46,7 @@ loader.load(`/models/${objToRender}/scene.gltf`, (gltf) => {
     labelDiv.className = "label3d";
     labelDiv.innerHTML = `
         <strong>Sideropora mordax</strong><br/>
-        Karang keras pembentuk terumbu<br/>
-        Habitat: Perairan tropis
+        Sideropora mordax adalah spesies karang keras (ordo Scleractinia) yang termasuk dalam famili Acroporidae. Karang ini dikenal memiliki struktur yang sangat kokoh dan padat, sesuai dengan nama mordax yang merujuk pada sifat “keras/kuat”. Koloninya umumnya berbentuk bercabang tebal atau massif bercabang pendek, dengan rangka kalsium karbonat yang kuat.
     `;
 
     const label = new CSS2DObject(labelDiv);

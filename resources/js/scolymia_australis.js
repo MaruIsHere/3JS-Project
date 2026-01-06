@@ -46,8 +46,7 @@ loader.load(`/models/${objToRender}/scene.gltf`, (gltf) => {
     labelDiv.className = "label3d";
     labelDiv.innerHTML = `
         <strong>Scolymia australis</strong><br/>
-        Karang keras pembentuk terumbu<br/>
-        Habitat: Perairan tropis
+        Scolymia australis adalah spesies karang keras soliter (tidak membentuk koloni besar) yang termasuk dalam famili Lobophylliidae. Dalam klasifikasi terbaru, spesies ini sering disebut dengan nama ilmiah Homophyllia australis. Karang ini dikenal karena bentuknya yang bulat hingga oval, berukuran relatif besar, dan memiliki warna yang sangat mencolok sehingga populer dalam studi terumbu dan akuarium laut.
     `;
 
     const label = new CSS2DObject(labelDiv);

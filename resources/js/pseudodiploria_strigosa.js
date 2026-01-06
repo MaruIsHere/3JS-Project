@@ -46,8 +46,7 @@ loader.load(`/models/${objToRender}/scene.gltf`, (gltf) => {
     labelDiv.className = "label3d";
     labelDiv.innerHTML = `
         <strong>Pseudodiploria strigosa</strong><br/>
-        Karang keras pembentuk terumbu<br/>
-        Habitat: Perairan tropis
+   Pseudodiploria strigosa , karang otak simetris , adalah spesies karang batu kolonial dalam famili Mussidae . Ia ditemukan di terumbu karang di perairan dangkal di Samudra Atlantik Barat dan Laut Karibia. Pertumbuhannya lambat dan hidup hingga usia yang sangat tua.
     `;
 
     const label = new CSS2DObject(labelDiv);

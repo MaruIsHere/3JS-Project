@@ -46,8 +46,7 @@ loader.load(`/models/${objToRender}/scene.gltf`, (gltf) => {
     labelDiv.className = "label3d";
     labelDiv.innerHTML = `
         <strong>Madrepora horrida</strong><br/>
-        Karang keras pembentuk terumbu<br/>
-        Habitat: Perairan tropis
+    Madrepora horrida merujuk pada spesies karang tanduk (genus Madrepora, kini lebih sering disebut Acropora) yang dikenal dengan percabangan seperti tanduk, polip kecil dalam mangkuk silinder, memiliki tentakel 6 (terminal) dan 12 (lateral), penting dalam pembentukan terumbu, dan statusnya Rentan (Vulnerable) karena populasi menurun, sering ditemukan di perairan tropis dangkal dekat terumbu di sekitar air keruh.
     `;
 
     const label = new CSS2DObject(labelDiv);
@@ -69,7 +68,7 @@ labelRenderer.domElement.style.pointerEvents = "none";
 container.appendChild(labelRenderer.domElement);
 
 // ================= CAMERA =================
-camera.position.z = 0.3;
+camera.position.z = 0.5;
 
 // ================= LIGHTING =================
 scene.add(new THREE.DirectionalLight(0xffffff, 1).position.set(5, 5, 5));

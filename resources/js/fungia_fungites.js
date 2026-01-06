@@ -46,8 +46,7 @@ loader.load(`/models/${objToRender}/scene.gltf`, (gltf) => {
     labelDiv.className = "label3d";
     labelDiv.innerHTML = `
         <strong>Fungia fungites</strong><br/>
-        Karang keras pembentuk terumbu<br/>
-        Habitat: Perairan tropis
+     "Ciri-ciri: Polip berbentuk kurang lebih bulat dan berdiameter hingga 280 milimeter. Gigi septal berbentuk segitiga, runcing, dan biasanya memiliki rusuk tengah yang jelas. Lobus tentakel mungkin ada. Duri kosta tinggi, halus, dan berbentuk kerucut. Warna: Cokelat, kadang-kadang berbintik-bintik, seringkali dengan lobus tentakel pucat. Spesies Serupa: Fungia repanda, yang memiliki gigi septal yang lebih halus. Habitat: Lereng terumbu karang dan laguna. Kelimpahan: Umum. Catatan Taksonomi: Kompleks spesies."
     `;
 
     const label = new CSS2DObject(labelDiv);
@@ -69,7 +68,7 @@ labelRenderer.domElement.style.pointerEvents = "none";
 container.appendChild(labelRenderer.domElement);
 
 // ================= CAMERA =================
-camera.position.z = 0.3;
+camera.position.z = 1;
 
 // ================= LIGHTING =================
 scene.add(new THREE.DirectionalLight(0xffffff, 1).position.set(5, 5, 5));

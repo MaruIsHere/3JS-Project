@@ -46,8 +46,7 @@ loader.load(`/models/${objToRender}/scene.gltf`, (gltf) => {
     labelDiv.className = "label3d";
     labelDiv.innerHTML = `
         <strong>Porites lobata</strong><br/>
-        Karang keras pembentuk terumbu<br/>
-        Habitat: Perairan tropis
+        Porites lobata adalah spesies karang yang umum dan ditemukan di bagian tropis Samudra Hindia dan Pasifik. Jangkauannya membentang dari Afrika Timur, Laut Merah dan Teluk Aden , melalui perairan Indonesia dan Australia hingga pantai Pasifik Teluk California dan Amerika Tengah. Ini adalah spesies karang yang paling umum di Hawaii . Seringkali menjadi spesies dominan di tepi terumbu karang, di laguna dan di terumbu karang pinggiran pada kedalaman hingga 30 meter (98 kaki). Ia ditemukan di zona yang sedikit lebih dalam daripada karang kembang kol .
     `;
 
     const label = new CSS2DObject(labelDiv);

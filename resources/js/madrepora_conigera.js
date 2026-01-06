@@ -46,8 +46,7 @@ loader.load(`/models/${objToRender}/scene.gltf`, (gltf) => {
     labelDiv.className = "label3d";
     labelDiv.innerHTML = `
         <strong>Madrepora conigera</strong><br/>
-        Karang keras pembentuk terumbu<br/>
-        Habitat: Perairan tropis
+  Madrepora conigera adalah nama taksonomi lama atau sinonim untuk spesies karang batu, yang sekarang lebih dikenal sebagai Acropora conigera, bagian dari genus Acropora (karang tanduk), dikenal karena membentuk koloni bercabang yang menyerupai tanduk, sering kali dengan ujung cabang berwarna pink atau krem, dan memainkan peran penting dalam pembentukan terumbu karang.
     `;
 
     const label = new CSS2DObject(labelDiv);

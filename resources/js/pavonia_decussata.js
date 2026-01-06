@@ -46,8 +46,7 @@ loader.load(`/models/${objToRender}/scene.gltf`, (gltf) => {
     labelDiv.className = "label3d";
     labelDiv.innerHTML = `
         <strong>Pavonia decussata</strong><br/>
-        Karang keras pembentuk terumbu<br/>
-        Habitat: Perairan tropis
+  Pavona decussata , kadang-kadang dikenal sebagai karang daun , adalah spesies karang batu kolonialdalam famili Agariciidae . Karang ini ditemukan di perairan dangkal di berbagai habitat terumbu, khususnya di permukaan yang landai, di bagian tropis wilayah Indo - Pasifik barat dan tengah
     `;
 
     const label = new CSS2DObject(labelDiv);

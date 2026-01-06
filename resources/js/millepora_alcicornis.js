@@ -46,8 +46,7 @@ loader.load(`/models/${objToRender}/scene.gltf`, (gltf) => {
     labelDiv.className = "label3d";
     labelDiv.innerHTML = `
         <strong>Millepora alcicornis</strong><br/>
-        Karang keras pembentuk terumbu<br/>
-        Habitat: Perairan tropis
+      Millepora alcicornis , atau jahe laut , adalah spesies karang api kolonial dengan kerangka berkapur . Karang ini ditemukan di terumbu karang perairan dangkal di Samudra Atlantik barat tropis. Karang ini menunjukkan berbagai morfologi yang berbeda tergantung pada lokasinya. Ia memakan plankton dan memperoleh sebagian kebutuhan energinya dari mikroalga yang terdapat di dalam jaringannya. Karang ini merupakan anggota penting dari komunitas pembentuk terumbu dan menghadapi ancaman yang sama seperti karang lainnya. Sengatannya dapat menyebabkan rasa sakit pada penyelam yang tidak waspada.
     `;
 
     const label = new CSS2DObject(labelDiv);
@@ -69,7 +68,7 @@ labelRenderer.domElement.style.pointerEvents = "none";
 container.appendChild(labelRenderer.domElement);
 
 // ================= CAMERA =================
-camera.position.z = 0.3;
+camera.position.z = 0.5;
 
 // ================= LIGHTING =================
 scene.add(new THREE.DirectionalLight(0xffffff, 1).position.set(5, 5, 5));

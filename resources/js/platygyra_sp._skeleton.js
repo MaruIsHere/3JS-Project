@@ -46,8 +46,7 @@ loader.load(`/models/${objToRender}/scene.gltf`, (gltf) => {
     labelDiv.className = "label3d";
     labelDiv.innerHTML = `
         <strong>Platygyra sp skeleton</strong><br/>
-        Karang keras pembentuk terumbu<br/>
-        Habitat: Perairan tropis
+        Platygyra sp. merujuk pada karang keras (ordo Scleractinia) dari genus Platygyra (famili Merulinidae) yang belum diidentifikasi hingga tingkat spesies. Karang ini dikenal luas sebagai karang otak (brain coral) karena pola alur dan punggung berliku di permukaannya yang menyerupai lipatan otak manusia.
     `;
 
     const label = new CSS2DObject(labelDiv);
@@ -69,7 +68,7 @@ labelRenderer.domElement.style.pointerEvents = "none";
 container.appendChild(labelRenderer.domElement);
 
 // ================= CAMERA =================
-camera.position.z = 0.3;
+camera.position.z = 200;
 
 // ================= LIGHTING =================
 scene.add(new THREE.DirectionalLight(0xffffff, 1).position.set(5, 5, 5));

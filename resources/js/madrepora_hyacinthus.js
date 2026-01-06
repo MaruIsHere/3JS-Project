@@ -46,8 +46,7 @@ loader.load(`/models/${objToRender}/scene.gltf`, (gltf) => {
     labelDiv.className = "label3d";
     labelDiv.innerHTML = `
         <strong>Madrepora hyacinthus</strong><br/>
-        Karang keras pembentuk terumbu<br/>
-        Habitat: Perairan tropis
+      Madrepora hyacinthus adalah nama ilmiah untuk spesies karang keras (Scleractinia) dalam famili Faviidae, yang merupakan bagian dari genus Madrepora, dikenal karena bentuknya yang bercabang menyerupai tangkai bunga hyacinth, meskipun lebih sering dikenal sebagai karang (organisme laut) daripada tanaman bunga (hyacinthus), dan merupakan fosil yang penting dalam studi paleontologi karang laut dalam, terutama dari masa Pleistosen dan Miosen di Indo-Pasifik.
     `;
 
     const label = new CSS2DObject(labelDiv);

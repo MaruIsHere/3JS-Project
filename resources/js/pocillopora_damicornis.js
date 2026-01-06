@@ -46,8 +46,7 @@ loader.load(`/models/${objToRender}/scene.gltf`, (gltf) => {
     labelDiv.className = "label3d";
     labelDiv.innerHTML = `
         <strong>Pocillopora damicornis</strong><br/>
-        Karang keras pembentuk terumbu<br/>
-        Habitat: Perairan tropis
+        Pocillopora damicornis , yang biasa dikenal sebagai karang kembang kol atau karang renda , adalah spesies karang keras dalam famili Pocilloporidae . Spesies ini berasal dari daerah tropis dan subtropis Samudra Hindia dan Pasifik.
     `;
 
     const label = new CSS2DObject(labelDiv);

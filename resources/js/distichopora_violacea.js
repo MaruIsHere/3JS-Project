@@ -46,8 +46,7 @@ loader.load(`/models/${objToRender}/scene.gltf`, (gltf) => {
     labelDiv.className = "label3d";
     labelDiv.innerHTML = `
         <strong>Distichopora violacea</strong><br/>
-        Karang keras pembentuk terumbu<br/>
-        Habitat: Perairan tropis
+        Distichopora violacea adalah karang api (fire coral) yang termasuk dalam kelas Hydrozoa, famili Stylasteridae. Meskipun sering disebut karang, organisme ini bukan karang keras Scleractinia, melainkan hidrozoa yang memiliki rangka kalsium karbonat dan sel penyengat (nematosista) yang dapat menyebabkan iritasi pada kulit.
     `;
 
     const label = new CSS2DObject(labelDiv);

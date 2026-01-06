@@ -46,8 +46,7 @@ loader.load(`/models/${objToRender}/scene.gltf`, (gltf) => {
     labelDiv.className = "label3d";
     labelDiv.innerHTML = `
         <strong>Madrepora cytherea</strong><br/>
-        Karang keras pembentuk terumbu<br/>
-        Habitat: Perairan tropis
+Madrepora cytherea adalah nama ilmiah lama (sinonim) untuk spesies karang yang sekarang dikenal sebagai Acropora cytherea, sejenis karang bercabang yang membentuk koloni lempengan besar dengan percabangan vertikal dan horizontal, memiliki polip kecil yang menghasilkan kerangka kalsium karbonat, penting dalam pembentukan terumbu karang, dan berwarna krem, coklat pucat, atau kadang biru pucat karena alga simbiosisnya.
     `;
 
     const label = new CSS2DObject(labelDiv);
@@ -69,7 +68,7 @@ labelRenderer.domElement.style.pointerEvents = "none";
 container.appendChild(labelRenderer.domElement);
 
 // ================= CAMERA =================
-camera.position.z = 0.3;
+camera.position.z = 0.5;
 
 // ================= LIGHTING =================
 scene.add(new THREE.DirectionalLight(0xffffff, 1).position.set(5, 5, 5));

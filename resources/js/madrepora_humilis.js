@@ -46,8 +46,7 @@ loader.load(`/models/${objToRender}/scene.gltf`, (gltf) => {
     labelDiv.className = "label3d";
     labelDiv.innerHTML = `
         <strong>Madrepora humilis</strong><br/>
-        Karang keras pembentuk terumbu<br/>
-        Habitat: Perairan tropis
+      Madrepora humilis adalah nama lama (sinonim) untuk spesies yang kini secara resmi dikenal sebagai Acropora humilis (famili Acroporidae). Pada literatur taksonomi modern, genus Madrepora tidak lagi digunakan untuk karang dangkal bercabang seperti ini. Acropora humilis dikenal sebagai karang bercabang pendek, tebal, dan sangat kokoh, sering dijumpai di perairan dangkal berenergi tinggi.
     `;
 
     const label = new CSS2DObject(labelDiv);

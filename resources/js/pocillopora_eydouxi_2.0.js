@@ -46,8 +46,7 @@ loader.load(`/models/${objToRender}/scene.gltf`, (gltf) => {
     labelDiv.className = "label3d";
     labelDiv.innerHTML = `
         <strong>Pocillopora eydouxi</strong><br/>
-        Karang keras pembentuk terumbu<br/>
-        Habitat: Perairan tropis
+        Pocillopora eydouxi adalah spesies karang keras (ordo Scleractinia) dari famili Pocilloporidae. Karang ini dikenal membentuk koloni bercabang besar, tebal, dan padat, sering menyerupai semak atau kembang kol. Dibandingkan Pocillopora lain, P. eydouxi memiliki cabang yang lebih besar dan rapat.
     `;
 
     const label = new CSS2DObject(labelDiv);
@@ -69,7 +68,7 @@ labelRenderer.domElement.style.pointerEvents = "none";
 container.appendChild(labelRenderer.domElement);
 
 // ================= CAMERA =================
-camera.position.z = 0.3;
+camera.position.z = 2.5;
 
 // ================= LIGHTING =================
 scene.add(new THREE.DirectionalLight(0xffffff, 1).position.set(5, 5, 5));

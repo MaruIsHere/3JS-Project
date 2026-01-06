@@ -46,8 +46,7 @@ loader.load(`/models/${objToRender}/scene.gltf`, (gltf) => {
     labelDiv.className = "label3d";
     labelDiv.innerHTML = `
         <strong>Madrepora spicifera</strong><br/>
-        Karang keras pembentuk terumbu<br/>
-        Habitat: Perairan tropis
+       Madrepora spicifera adalah spesies karang batu dalam genus Madrepora, termasuk dalam famili Madreporidae, dikenal membentuk struktur bercabang dengan polip kecil dalam cangkir silinder, penting dalam ekosistem terumbu karang meskipun sering dikaitkan dengan genus Madrepora yang lebih umum dikenal sebagai "karang tanduk" (meskipun nama Madrepora dulu dipakai luas untuk semua karang batu). Spesies ini merupakan bagian dari klasifikasi ilmiah: Filum Cnidaria, Kelas Anthozoa, Ordo Scleractinia, dan pernah memiliki varietas seperti M. spicifera var. abbreviata
     `;
 
     const label = new CSS2DObject(labelDiv);

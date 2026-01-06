@@ -46,8 +46,7 @@ loader.load(`/models/${objToRender}/scene.gltf`, (gltf) => {
     labelDiv.className = "label3d";
     labelDiv.innerHTML = `
         <strong>Psammocora columna</strong><br/>
-        Karang keras pembentuk terumbu<br/>
-        Habitat: Perairan tropis
+Psammocora columna adalah spesies karang keras (ordo Scleractinia) yang termasuk dalam famili Psammocoridae. Karang ini dikenal dengan bentuk koloninya yang masif hingga kolumnar (berbentuk tiang/pilar) dan permukaan yang relatif halus. Psammocora sering dianggap karang yang cukup tangguh terhadap variasi kondisi lingkungan.
     `;
 
     const label = new CSS2DObject(labelDiv);

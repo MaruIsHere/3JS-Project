@@ -46,8 +46,7 @@ loader.load(`/models/${objToRender}/scene.gltf`, (gltf) => {
     labelDiv.className = "label3d";
     labelDiv.innerHTML = `
         <strong>Meandrina sp</strong><br/>
-        Karang keras pembentuk terumbu<br/>
-        Habitat: Perairan tropis
+        Meandrina meandrites ditemukan di Bermuda , Florida , Laut Karibia, Teluk Meksiko, dan Bahama . Ia terutama terdapat di sisi laut terumbu karang tetapi juga terdapat di lereng belakang. Kisaran kedalaman yang disukainya adalah 8 hingga 30 meter (26 hingga 98 kaki) tetapi ditemukan pada kedalaman kurang dari 80 meter (260 kaki). Ia mentolerir lokasi dengan tingkat sedimentasi dan kekeruhan yang tinggi. Secara umum, ia adalah karang yang paling sering terlihat di bagian yang lebih dalam dari jangkauannya.
     `;
 
     const label = new CSS2DObject(labelDiv);
@@ -69,7 +68,7 @@ labelRenderer.domElement.style.pointerEvents = "none";
 container.appendChild(labelRenderer.domElement);
 
 // ================= CAMERA =================
-camera.position.z = 0.3;
+camera.position.z = 3;
 
 // ================= LIGHTING =================
 scene.add(new THREE.DirectionalLight(0xffffff, 1).position.set(5, 5, 5));

@@ -46,8 +46,7 @@ loader.load(`/models/${objToRender}/scene.gltf`, (gltf) => {
     labelDiv.className = "label3d";
     labelDiv.innerHTML = `
         <strong>Goniopora columna</strong><br/>
-        Karang keras pembentuk terumbu<br/>
-        Habitat: Perairan tropis
+     Goniopora columna adalah spesies karang keras (ordo Scleractinia) dari famili Poritidae. Karang ini dikenal dengan polipnya yang panjang dan menyerupai bunga, sering disebut karang bunga (flower coral). Spesies ini membentuk koloni masif hingga kolumnar, sesuai dengan nama columna.
     `;
 
     const label = new CSS2DObject(labelDiv);

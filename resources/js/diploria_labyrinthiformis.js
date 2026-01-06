@@ -46,8 +46,7 @@ loader.load(`/models/${objToRender}/scene.gltf`, (gltf) => {
     labelDiv.className = "label3d";
     labelDiv.innerHTML = `
         <strong>Diploria labyrinthiformis</strong><br/>
-        Karang keras pembentuk terumbu<br/>
-        Habitat: Perairan tropis
+        "Spesies ini adalah salah satu pembentuk terumbu karang yang memiliki bentuk bulat seperti otak dengan warna coklat, kuning, atau abu-abu. Diploria labyrinthiformis dapat tumbuh sekitar 3,5 milimeter per tahun, dengan diameternya dapat mencapai sekitar 2 meter. Selama tahap larva planktonik, karang ini dapat bergerak. Setelah itu, menjadi sesil atau menetap secara permanen. Spesies ini merupakan hewan penyaring, dan bertahan hidup memakan zooplankton dan bakteri. Makanan ini ditangkap oleh polip dengan tentakel. Polip memiliki nematosista yang dapat menangkap mangsa. Mangsa kemudian diangkut ke mulut dengan bantuan lendir dan silia. Diploria labyrinthiformis adalah hermafrodit. Hewan ini mengeluarkan telur yang dibuahi oleh sperma di dalam polip, diikuti oleh pengeluaran larva."
     `;
 
     const label = new CSS2DObject(labelDiv);

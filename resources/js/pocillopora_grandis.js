@@ -46,8 +46,7 @@ loader.load(`/models/${objToRender}/scene.gltf`, (gltf) => {
     labelDiv.className = "label3d";
     labelDiv.innerHTML = `
         <strong>Pocillopora grandis</strong><br/>
-        Karang keras pembentuk terumbu<br/>
-        Habitat: Perairan tropis
+       Pocillopora grandis adalah spesies karang batu kolonial dalam famili Pocilloporidae . Ia dikenal umum sebagai karang tanduk , dan ditemukan di wilayah Indo-Pasifik Barat hingga Pasifik Tropis Timur. Spesies ini tersebar di Laut Merah dan Teluk Aden. Distribusi lebih lanjut meliputi: Samudra Hindia bagian barat daya dan timur laut, Indo-Pasifik tengah, Australia tropis, Jepang selatan dan Laut Cina Selatan, Pasifik Barat samudra, Pasifik tengah, Kepulauan Hawaii dan Atol Johnston, Pasifik Timur Jauh. Di wilayah Pasifik Tropis Timur, spesies ini juga ditemukan di lepas pantai Meksiko, Kosta Rika, Panama, Kolombia dan Ekuador.
     `;
 
     const label = new CSS2DObject(labelDiv);

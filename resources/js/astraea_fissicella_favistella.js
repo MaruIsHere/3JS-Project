@@ -46,8 +46,7 @@ loader.load(`/models/${objToRender}/scene.gltf`, (gltf) => {
     labelDiv.className = "label3d";
     labelDiv.innerHTML = `
         <strong>Astraea fissicella favistella</strong><br/>
-        Karang keras pembentuk terumbu<br/>
-        Habitat: Perairan tropis
+      Astraea fissicella adalah nama taksonomi lama untuk karang keras berbentuk masif–submasif yang dalam literatur klasik sering dikaitkan dengan kelompok Favistella/Favites-like coral. Dalam klasifikasi modern, genus Astraea sudah direvisi, dan spesies ini umumnya dimasukkan ke dalam famili Merulinidae, dengan kemiripan morfologi kuat terhadap genus Favites, Goniastrea, atau Favistella. Nama fissicella mengacu pada alur atau celah (fissure) yang memisahkan koralit.
     `;
 
     const label = new CSS2DObject(labelDiv);

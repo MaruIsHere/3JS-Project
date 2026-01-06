@@ -46,8 +46,7 @@ loader.load(`/models/${objToRender}/scene.gltf`, (gltf) => {
     labelDiv.className = "label3d";
     labelDiv.innerHTML = `
         <strong>Gemmipora brassica</strong><br/>
-        Karang keras pembentuk terumbu<br/>
-        Habitat: Perairan tropis
+      Gemmipora brassica adalah spesies karang keras (ordo Scleractinia) yang termasuk dalam famili Acroporidae. Spesies ini dikenal dengan bentuk koloni yang menyerupai kubis atau bunga kol, terdiri dari lembaran dan tonjolan pendek yang bertumpuk rapat. Dalam literatur modern, Gemmipora brassica sering diperlakukan sebagai sinonim atau bagian dari kompleks Acropora (khususnya kelompok Acropora humilis), sehingga penamaannya banyak dijumpai pada koleksi atau referensi lama.
     `;
 
     const label = new CSS2DObject(labelDiv);
@@ -69,7 +68,7 @@ labelRenderer.domElement.style.pointerEvents = "none";
 container.appendChild(labelRenderer.domElement);
 
 // ================= CAMERA =================
-camera.position.z = 0.3;
+camera.position.z = 0.5;
 
 // ================= LIGHTING =================
 scene.add(new THREE.DirectionalLight(0xffffff, 1).position.set(5, 5, 5));

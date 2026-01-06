@@ -46,8 +46,7 @@ loader.load(`/models/${objToRender}/scene.gltf`, (gltf) => {
     labelDiv.className = "label3d";
     labelDiv.innerHTML = `
         <strong>Pseudodiploria strigosa</strong><br/>
-        Karang keras pembentuk terumbu<br/>
-        Habitat: Perairan tropis
+Karang otak simetris membentuk lempengan datar halus atau kubah setengah bola masif hingga berdiameter 1,8 meter (5 kaki 11 inci). Permukaannya ditutupi oleh lembah-lembah berbelit-belit yang saling berhubungan di mana polip berada di dalam cekungan berbentuk cangkir yang dikenal sebagai koralit . Masing-masing koralit memiliki sejumlah punggungan yang tersusun secara radial yang dikenal sebagai septa yang berlanjut di luar koralit sebagai kosta dan terhubung dengan koralit tetangga.
     `;
 
     const label = new CSS2DObject(labelDiv);

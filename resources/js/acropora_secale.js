@@ -46,8 +46,7 @@ loader.load(`/models/${objToRender}/scene.gltf`, (gltf) => {
     labelDiv.className = "label3d";
     labelDiv.innerHTML = `
         <strong>Acropora secale</strong><br/>
-        Karang keras pembentuk terumbu<br/>
-        Habitat: Perairan tropis
+       Acropora secale ditemukan di perairan tropis Indo-Pasifik barat termasuk pantai Afrika Timur, Mozambik, Rodrigues , Aldabra dan Chagos . Ia juga ditemukan lebih jauh ke timur di sekitar Singapura, Thailand, Indonesia, Jepang, Filipina, Taiwan dan Australia utara dan barat. Ini adalah karang pembentuk terumbu dan terdapat pada kedalaman hingga 5 meter (16 kaki) di dataran terumbu luar, lereng terumbu, tepi terumbu dan dinding.
     `;
 
     const label = new CSS2DObject(labelDiv);

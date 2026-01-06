@@ -46,8 +46,7 @@ loader.load(`/models/${objToRender}/scene.gltf`, (gltf) => {
     labelDiv.className = "label3d";
     labelDiv.innerHTML = `
         <strong>Acropora prolifera</strong><br/>
-        Karang keras pembentuk terumbu<br/>
-        Habitat: Perairan tropis
+   Acropora prolifera ditemukan di Laut Karibia, Teluk Meksiko, Bahama dan Florida selatan hingga Kolombia dan Venezuela. Umumnya ditemukan di lereng terumbu karang bagian luar , di teluk air tenang dan di balik daratan, paling sering pada kedalaman sekitar 7 meter (23 kaki) tetapi kadang-kadang hingga sekitar 30 meter (98 kaki). Secara umum spesies ini jarang ditemukan.
     `;
 
     const label = new CSS2DObject(labelDiv);

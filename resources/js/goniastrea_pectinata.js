@@ -46,8 +46,7 @@ loader.load(`/models/${objToRender}/scene.gltf`, (gltf) => {
     labelDiv.className = "label3d";
     labelDiv.innerHTML = `
         <strong>Goniastrea pectinata</strong><br/>
-        Karang keras pembentuk terumbu<br/>
-        Habitat: Perairan tropis
+   Goniastrea pectinata adalah spesies karang keras (ordo Scleractinia) dari famili Merulinidae. Karang ini membentuk koloni masif hingga menggunduk dan dikenal memiliki korallit berbentuk poligonal yang tersusun rapat, sehingga permukaannya tampak bertekstur seperti sisiran (pectinate).
     `;
 
     const label = new CSS2DObject(labelDiv);
@@ -69,7 +68,7 @@ labelRenderer.domElement.style.pointerEvents = "none";
 container.appendChild(labelRenderer.domElement);
 
 // ================= CAMERA =================
-camera.position.z = 0.3;
+camera.position.z = 20;
 
 // ================= LIGHTING =================
 scene.add(new THREE.DirectionalLight(0xffffff, 1).position.set(5, 5, 5));

@@ -46,8 +46,7 @@ loader.load(`/models/${objToRender}/scene.gltf`, (gltf) => {
     labelDiv.className = "label3d";
     labelDiv.innerHTML = `
         <strong>Acropora valenciennesi</strong><br/>
-        Karang keras pembentuk terumbu<br/>
-        Habitat: Perairan tropis
+Acropora valenciennesi adalah karang keras (ordo Scleractinia) dari famili Acroporidae yang dikenal dengan bentuk koloni menyerupai semak bercabang datar hingga mendatar, dengan cabang-cabang pendek dan melebar. Spesies ini termasuk karang pertumbuhan cepat dan merupakan salah satu pembentuk terumbu penting di perairan Indo-Pasifik.
     `;
 
     const label = new CSS2DObject(labelDiv);
