@@ -199,7 +199,7 @@ class ProductController extends Controller
         // $qrCode = QrCode::size(200)->generate('https://example.com');
         // return view('layouts.qrcode', compact('qrCode'));
         // Generate frontend route URL for this inventory item
-        $frontendPath = "http://localhost:8000/3dObject/{$id}"; // or slug if you use slugs
+        $frontendPath = "http://coraledutech.com/3dObject/{$id}"; // or slug if you use slugs
 
         // Generate QR code image and save to storage/app/public/qrcodes/
         $qrCodePath = "qrcodes/products_{$id}.png";

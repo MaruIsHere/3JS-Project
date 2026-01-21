@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DataController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProductController;
 
 /*
@@ -19,9 +20,7 @@ use App\Http\Controllers\ProductController;
 //     return view('3D.acropora_cervicornis');
 // });
 
-Route::get('/', function () {
-    return view('home');
-})->name('home');
+Route::get('/', [HomeController::class, 'index'])->name('home');
 
 Route::get('/data', function () {
     return redirect()->route('data.index');

@@ -41,37 +41,57 @@
 					<h3 class="fw-bold text-dark">Mengapa Belajar Bersama Kami?</h3>
 				</div>
 				<div class="row g-4">
-					{{-- Feature 1 --}}
+					{{-- Feature 1: Visual Realistik --}}
 					<div class="col-md-4">
 						<div class="card h-100 border-0 shadow-sm rounded-4 p-3 text-center hover-up">
 							<div class="card-body">
 								<div class="mb-3">
-									{{-- Ikon Coral (Menggunakan Bootstrap Icon water sebagai pengganti) --}}
-									<i class="bi bi-water text-primary fs-1"></i>
+									{{-- SVG Asli (Biru) --}}
+									<svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" fill="currentColor" class="text-primary"
+										viewBox="0 0 16 16">
+										<path
+											d="M7.765 1.559a.5.5 0 0 1 .47 0l6 3a.5.5 0 0 1 0 .882l-6 3a.5.5 0 0 1-.47 0l-6-3a.5.5 0 0 1 0-.882l6-3zM1.5 5.25l5.5 2.75 5.5-2.75-5.5-2.75-5.5 2.75z" />
+										<path d="M1.5 8.25l5.5 2.75 5.5-2.75-5.5-2.75-5.5 2.75z" />
+										<path d="M1.5 11.25l5.5 2.75 5.5-2.75-5.5-2.75-5.5 2.75z" />
+									</svg>
 								</div>
 								<h5 class="fw-bold mb-2">Visual Realistik</h5>
 								<p class="text-muted small">Tekstur & bentuk asli dari laut Indonesia.</p>
 							</div>
 						</div>
 					</div>
-					{{-- Feature 2 --}}
+
+					{{-- Feature 2: Edukasi Digital --}}
 					<div class="col-md-4">
 						<div class="card h-100 border-0 shadow-sm rounded-4 p-3 text-center hover-up">
 							<div class="card-body">
 								<div class="mb-3">
-									<i class="bi bi-book text-success fs-1"></i>
+									{{-- SVG Asli (Hijau) --}}
+									<svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" fill="currentColor" class="text-success"
+										viewBox="0 0 16 16">
+										<path
+											d="M11 2a3 3 0 0 1 3 3v6a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3V5a3 3 0 0 1 3-3h6zM5 1a4 4 0 0 0-4 4v6a4 4 0 0 0 4 4h6a4 4 0 0 0 4-4V5a4 4 0 0 0-4-4H5z" />
+										<path
+											d="M4.5 9a.5.5 0 0 1 .5-.5h6a.5.5 0 0 1 0 1H5a.5.5 0 0 1-.5-.5zm0-2a.5.5 0 0 1 .5-.5h6a.5.5 0 0 1 0 1H5a.5.5 0 0 1-.5-.5zm0-2a.5.5 0 0 1 .5-.5h6a.5.5 0 0 1 0 1H5a.5.5 0 0 1-.5-.5z" />
+									</svg>
 								</div>
 								<h5 class="fw-bold mb-2">Edukasi Digital</h5>
 								<p class="text-muted small">Media belajar nyata tanpa harus menyelam.</p>
 							</div>
 						</div>
 					</div>
-					{{-- Feature 3 --}}
+
+					{{-- Feature 3: Akses 24/7 --}}
 					<div class="col-md-4">
 						<div class="card h-100 border-0 shadow-sm rounded-4 p-3 text-center hover-up">
 							<div class="card-body">
 								<div class="mb-3">
-									<i class="bi bi-clock-history text-warning fs-1"></i>
+									{{-- SVG Asli (Kuning/Jam) --}}
+									<svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" fill="currentColor" class="text-warning"
+										viewBox="0 0 16 16">
+										<path
+											d="M8 11a3 3 0 1 1 0-6 3 3 0 0 1 0 6zm0 1a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z" />
+									</svg>
 								</div>
 								<h5 class="fw-bold mb-2">Akses 24/7</h5>
 								<p class="text-muted small">Informasi detail kapan saja.</p>
@@ -90,50 +110,38 @@
 				</div>
 
 				<div class="row g-4">
-					{{-- Kartu Spesimen 1 --}}
-					<div class="col-lg-3 col-md-6">
-						<div class="card h-100 border-0 shadow-sm rounded-3 overflow-hidden">
-							{{-- Placeholder Background Hitam untuk 3D --}}
-							<div class="bg-dark d-flex align-items-center justify-content-center" style="height: 200px;">
-								<img src="{{ asset('images/coral-1.png') }}" alt="Coral 1" class="img-fluid"
-									style="max-height: 150px; opacity: 0.8;">
-							</div>
-							<div class="card-body text-center bg-white">
-								<h6 class="fw-bold text-dark">"Pocillopora damicornis"</h6>
-								<a href="#" class="btn btn-primary btn-sm px-4 mt-2 rounded-pill">Lihat 3D</a>
+					{{-- LOOPING DATA DARI DATABASE --}}
+					@foreach ($specimens as $item)
+						<div class="col-lg-3 col-md-6">
+							<div class="card h-100 border-0 shadow-sm rounded-3 overflow-hidden">
+
+								{{-- Bagian Gambar --}}
+								<div class="bg-dark d-flex align-items-center justify-content-center position-relative" style="height: 200px;">
+
+									@if ($item->image)
+										<img src="{{ asset('storage/products/' . $item->image) }}" alt="{{ $item->name }}"
+											class="img-fluid w-100 h-100" style="object-fit: cover;">
+									@else
+										{{-- Gambar Placeholder jika tidak ada gambar --}}
+										<span class="text-white small">No Image</span>
+									@endif
+								</div>
+
+								<div class="card-body text-center bg-white">
+									{{-- Nama Spesimen --}}
+									<h6 class="fw-bold text-dark text-truncate" title="{{ $item->name }}">
+										"{{ $item->name }}"
+									</h6>
+
+									{{-- Tombol Detail (Opsional: arahkan ke detail produk) --}}
+									<a href="{{ route('object3D', $item->id) }}" class="btn btn-primary btn-sm px-4 mt-2 rounded-pill">Lihat 3D</a>
+								</div>
 							</div>
 						</div>
-					</div>
+					@endforeach
 
-					{{-- Kartu Spesimen 2 --}}
-					<div class="col-lg-3 col-md-6">
-						<div class="card h-100 border-0 shadow-sm rounded-3 overflow-hidden">
-							<div class="bg-dark d-flex align-items-center justify-content-center" style="height: 200px;">
-								<img src="{{ asset('images/coral-2.png') }}" alt="Coral 2" class="img-fluid"
-									style="max-height: 150px; opacity: 0.8;">
-							</div>
-							<div class="card-body text-center bg-white">
-								<h6 class="fw-bold text-dark">"Acropora Formosa"</h6>
-								<a href="#" class="btn btn-primary btn-sm px-4 mt-2 rounded-pill">Lihat 3D</a>
-							</div>
-						</div>
-					</div>
-
-					{{-- Kartu Spesimen 3 --}}
-					<div class="col-lg-3 col-md-6">
-						<div class="card h-100 border-0 shadow-sm rounded-3 overflow-hidden">
-							<div class="bg-dark d-flex align-items-center justify-content-center" style="height: 200px;">
-								<img src="{{ asset('images/coral-3.png') }}" alt="Coral 3" class="img-fluid"
-									style="max-height: 150px; opacity: 0.8;">
-							</div>
-							<div class="card-body text-center bg-white">
-								<h6 class="fw-bold text-dark">"Porites Lutea"</h6>
-								<a href="#" class="btn btn-primary btn-sm px-4 mt-2 rounded-pill">Lihat 3D</a>
-							</div>
-						</div>
-					</div>
-
-					{{-- Kolom Teks Informasi (Posisi Kanan) --}}
+					{{-- KOLOM TEKS INFORMASI (Tetap Statis di Kanan) --}}
+					{{-- Ini ditaruh SETELAH loop, agar selalu muncul sebagai item ke-4 --}}
 					<div class="col-lg-3 col-md-6 d-flex flex-column justify-content-center ps-lg-4">
 						<h4 class="fw-bold mb-3">Penganiman Interaktif 3D</h4>
 						<p class="text-muted small mb-4">Ragam spesies model spesimen terumbu karang Indonesia.</p>
@@ -143,6 +151,7 @@
 							<li class="mb-2"><i class="bi bi-check-circle-fill text-primary me-2"></i> Informasi Taksonomi</li>
 						</ul>
 
+						{{-- Link ke halaman katalog lengkap --}}
 						<a href="{{ route('data.index') }}" class="btn btn-primary w-100 fw-bold">LIHAT DAFTAR KARANG</a>
 					</div>
 				</div>
