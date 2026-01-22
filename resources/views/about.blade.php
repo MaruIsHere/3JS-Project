@@ -23,10 +23,7 @@
 		<section class="py-5 bg-light">
 			<div class="container py-4">
 				<div class="row align-items-center g-5">
-					<div class="col-lg-6 order-lg-2">
-						<img src="{{ asset('images/about/intro.png') }}" alt="Penyelam Rumah Coral" class="img-fluid rounded-4 shadow-lg">
-					</div>
-					<div class="col-lg-6 order-lg-1">
+					<div class="col-lg-12 order-lg-1">
 						<h6 class="text-primary fw-bold text-uppercase mb-2">Siapa Kami?</h6>
 						<h2 class="fw-bold mb-4">About Rumah Coral Bali</h2>
 						<p class="text-muted lead" style="text-align: justify;">

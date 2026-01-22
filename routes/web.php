@@ -36,4 +36,8 @@ Route::get('/about', function () {
     return view('about');
 })->name('about');
 
+Route::get('/thanksfor', function () {
+    return view('thanksfor');
+});
+
 Route::resource('data', DataController::class);
