@@ -6,7 +6,7 @@
 	<section class="py-5 bg-white">
 		<div class="container">
 
-			{{-- 1. BREADCRUMB (Navigasi Atas) --}}
+			{{-- 1. BREADCRUMB --}}
 			<nav aria-label="breadcrumb" class="mb-4">
 				<ol class="breadcrumb">
 					<li class="breadcrumb-item"><a href="{{ route('home') }}" class="text-decoration-none text-muted">Home</a></li>
@@ -19,40 +19,48 @@
 			<div class="row">
 				{{-- 2. KOLOM KIRI (Gambar & Tombol) --}}
 				<div class="col-lg-5 col-md-6 mb-4">
-					{{-- Main Image dengan Overlay Text --}}
-					<div class="card border-0 mb-3 position-relative">
+					{{-- Main Image Preview --}}
+					<div class="card border-0 mb-3 position-relative overflow-hidden shadow-sm rounded">
 						@if ($data->image)
-							<img src="{{ asset('storage/products/' . $data->image) }}" alt="{{ $data->name }}"
-								class="img-fluid rounded shadow-sm w-100" style="object-fit: cover; aspect-ratio: 4/3;">
+							<a href="{{ asset('storage/products/' . $data->image) }}" target="_blank" id="mainImageLink">
+								<img id="mainImage" src="{{ asset('storage/products/' . $data->image) }}" alt="{{ $data->name }}"
+									class="img-fluid w-100" style="object-fit: cover; aspect-ratio: 4/3; transition: transform 0.3s ease;">
+							</a>
 						@else
 							<div class="bg-light d-flex align-items-center justify-content-center border rounded" style="aspect-ratio: 4/3;">
 								<i class="fas fa-image text-muted fa-3x"></i>
 							</div>
 						@endif
 
-						{{-- Overlay Text "PREVIEW MODEL 3D" (Opsional, sesuai sketsa) --}}
-						<div class="position-absolute top-50 start-50 translate-middle text-center w-100">
+						{{-- Overlay Text (Dibuat non-clickable agar tidak mengganggu link gambar) --}}
+						<div class="position-absolute top-50 start-50 translate-middle text-center w-100" style="pointer-events: none;">
 							<span class="badge bg-dark bg-opacity-50 fs-6 fw-light px-3 py-2">
 								PREVIEW MODEL 3D
 							</span>
 						</div>
 					</div>
 
-					{{-- Thumbnail (Gbr Terumbu) --}}
+					{{-- Thumbnail Gallery --}}
 					<div class="d-flex gap-2 mb-4">
-						{{-- Contoh Thumbnail (bisa di-loop jika ada multiple images) --}}
-						<div class="border rounded p-1 border-primary" style="cursor: pointer;">
-							@if ($data->image)
-								<img src="{{ asset('storage/products/' . $data->image) }}" class="rounded" width="60" height="60"
+						{{-- Thumbnail 1 --}}
+						@if ($data->image)
+							<div class="thumb-item border rounded p-1 border-primary"
+								onclick="changeImage('{{ asset('storage/products/' . $data->image) }}', this)"
+								style="cursor: pointer; width: 70px; height: 70px;">
+								<img src="{{ asset('storage/products/' . $data->image) }}" class="rounded w-100 h-100"
 									style="object-fit: cover;">
-							@else
-								<div class="bg-light rounded" style="width: 60px; height: 60px;"></div>
-							@endif
-						</div>
-						{{-- Placeholder thumbnail lain --}}
-						<div class="border rounded p-1" style="cursor: pointer; opacity: 0.6;">
-							<div class="bg-secondary rounded" style="width: 60px; height: 60px;"></div>
-						</div>
+							</div>
+						@endif
+
+						{{-- Thumbnail 2 --}}
+						@if ($data->image_2)
+							<div class="thumb-item border rounded p-1"
+								onclick="changeImage('{{ asset('storage/products/' . $data->image_2) }}', this)"
+								style="cursor: pointer; width: 70px; height: 70px;">
+								<img src="{{ asset('storage/products/' . $data->image_2) }}" class="rounded w-100 h-100"
+									style="object-fit: cover;">
+							</div>
+						@endif
 					</div>
 
 					{{-- Tombol Lihat 3D --}}
@@ -70,28 +78,11 @@
 				{{-- 3. KOLOM KANAN (Informasi Detail) --}}
 				<div class="col-lg-7 col-md-6">
 					<div class="ps-lg-4">
-						{{-- Judul --}}
 						<h1 class="fw-bold text-uppercase mb-1">{{ $data->name }}</h1>
-
-						{{-- Subtitle (Hardcoded sesuai sketsa, atau ambil dari database jika ada kolom latin_name) --}}
-						<h4 class="text-muted fw-light mb-4">(Pavona Decussata / Cactus Coral)</h4>
-
-
-						{{-- Spesifikasi (Tebal, Warna) --}}
-						{{-- <div class="row mb-4">
-							<div class="col-md-6 mb-2">
-								<span class="text-muted text-uppercase small ls-1">Tebal</span>
-								<p class="fw-bold mb-0">3 - 10 mm</p> 
-							</div>
-							<div class="col-md-6 mb-2">
-								<span class="text-muted text-uppercase small ls-1">Warna</span>
-								<p class="fw-bold mb-0">Variasi (Coklat, Hijau)</p> 
-							</div>
-						</div> --}}
+						<h4 class="text-muted fw-light mb-4">({{ $data->code }})</h4>
 
 						<hr class="my-4">
 
-						{{-- Deskripsi --}}
 						<div class="mb-4">
 							<h5 class="fw-bold text-uppercase mb-3">Deskripsi</h5>
 							<div class="text-muted lh-lg">
@@ -99,7 +90,6 @@
 							</div>
 						</div>
 
-						{{-- Informasi Tambahan (Opsional, jika masih mau ditampilkan di bawah deskripsi) --}}
 						@if ($data->information)
 							<div class="mt-4 p-3 bg-light rounded border">
 								<h6 class="fw-bold text-uppercase small">Info Tambahan:</h6>
@@ -108,17 +98,40 @@
 								</div>
 							</div>
 						@endif
-
 					</div>
 				</div>
 			</div>
 		</div>
 	</section>
 
-	{{-- Sedikit CSS tambahan untuk Letter Spacing --}}
 	<style>
 		.ls-1 {
 			letter-spacing: 1px;
 		}
+
+		.thumb-item:hover {
+			border-color: #0d6efd !important;
+		}
+
+		#mainImage:hover {
+			transform: scale(1.05);
+		}
 	</style>
+
+	<script>
+		function changeImage(imageUrl, element) {
+			// Ubah Gambar Utama
+			const mainImg = document.getElementById('mainImage');
+			const mainLink = document.getElementById('mainImageLink');
+
+			mainImg.src = imageUrl;
+			if (mainLink) mainLink.href = imageUrl;
+
+			// Update Border UI Thumbnail
+			document.querySelectorAll('.thumb-item').forEach(item => {
+				item.classList.remove('border-primary');
+			});
+			element.classList.add('border-primary');
+		}
+	</script>
 @endsection
