@@ -36,7 +36,7 @@ Route::get('/about', function () {
     return view('about');
 })->name('about');
 
-Route::get('/   ', function () {
+Route::get('/thanksfor', function () {
     return view('thanksfor');
 })->name('thanksfor');
 

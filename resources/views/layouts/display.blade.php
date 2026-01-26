@@ -74,10 +74,12 @@
 					<div class="col-md-4 col-sm-6 mb-4">
 						<h5 class="text-dark fw-bold mb-3">Tautan Terkait</h5>
 						<ul class="list-unstyled">
-							<li class="mb-2"><a href="#" class="text-muted text-decoration-none">Tentang Kami</a></li>
-							<li class="mb-2"><a href="#" class="text-muted text-decoration-none">Hubungi Kami</a></li>
-							<li class="nav-item"><a class="nav-link" href="{{ route('thanksfor') }}">Thanksfor</a></li>
-							<li class="mb-2"><a href="#" class="text-muted text-decoration-none">Kebijakan Privasi</a></li>
+							<li class="mb-2"><a href="{{ route('home') }}" class="text-muted text-decoration-none">Tentang Kami</a></li>
+							<li class="mb-2"><a href="{{ route('about') }}" class="text-muted text-decoration-none">Hubungi Kami</a></li>
+							<li class="mb-2"><a href="{{ route('thanksfor') }}" class="text-muted text-decoration-none">Hubungi Kami</a>
+							</li>
+							<li class="mb-2"><a href="{{ route('data.index') }}" class="text-muted text-decoration-none">Kebijakan
+									Privasi</a></li>
 						</ul>
 					</div>
 
