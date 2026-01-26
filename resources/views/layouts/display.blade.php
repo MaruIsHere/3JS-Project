@@ -76,6 +76,7 @@
 						<ul class="list-unstyled">
 							<li class="mb-2"><a href="#" class="text-muted text-decoration-none">Tentang Kami</a></li>
 							<li class="mb-2"><a href="#" class="text-muted text-decoration-none">Hubungi Kami</a></li>
+							<li class="nav-item"><a class="nav-link" href="{{ route('thanksfor') }}">Thanksfor</a></li>
 							<li class="mb-2"><a href="#" class="text-muted text-decoration-none">Kebijakan Privasi</a></li>
 						</ul>
 					</div>
