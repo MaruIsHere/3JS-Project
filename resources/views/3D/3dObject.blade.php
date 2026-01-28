@@ -4,35 +4,71 @@
 
 @section('content')
 	@php
-		// Mengambil file berdasarkan kolom 'code' di database
-		$jsFile = 'resources/js/' . $id->code . '.js';
+// Ambil file JS berdasarkan code
+$jsFile = 'resources/js/' . $id->code . '.js';
+@endphp
 
-		// Cek jika file JS benar-benar ada sebelum dimuat (Opsional: lebih baik dilakukan di Controller)
-		// Jika Anda yakin file selalu ada, abaikan komentar ini.
+{{-- Load CSS & JS Dinamis --}}
+@vite([
+'resources/css/animate.css',
+'resources/css/tailwindoutput.css',
+'resources/css/font-awesome.min.css',
+'resources/css/ionicons.min.css',
+$jsFile
+])
 
-	@endphp
+<style>
+.label3d {
+  position: relative;
+  pointer-events: auto;
+}
 
-	<section class="padding-top-100">
+.info-icon {
+  font-size: 20px;
+  background: rgba(0,0,0,0.6);
+  color: white;
+  padding: 5px 8px;
+  border-radius: 50%;
+  cursor: pointer;
+  user-select: none;
+}
 
-		<div class="shop-detail">
-			<div class="heading text-center">
-				<h3>{{ $id->name ?? 'Objek 3D' }}</h3>
-				<span class="text-muted">
-					Scroll Up/Down Untuk Zoom In/Out <br>
-					Klik Kiri Untuk Rotasi <br>
-					Klik Kanan Untuk Menggeser
-				</span>
-			</div>
-		</div>
+.info-popup {
+  position: absolute;
+  top: 60px;
+  left: -115px;
+  background: rgba(0,0,0,0.85);
+  color: white;
+  padding: 10px;
+  border-radius: 6px;
+  width: 260px;
+  font-size: 12px;
+  line-height: 1.4;
+  z-index: 10;
+  text-align:center;
+}
+</style>
 
-		<div class="d-flex justify-content-center my-4">
-			<div id="{{ $id->code }}" style="height: 500px; width: 90vw;"></div>
-		</div>
-		</div>
 
-	</section>
+<section class="pt-24 pb-16">
 
-	{{-- Load CSS & JS Dinamis --}}
-	@vite(['resources/css/animate.css', 'resources/css/bootstrap.min.css', 'resources/css/font-awesome.min.css', 'resources/css/ionicons.min.css', 'resources/css/main.css', 'resources/js/bootstrap.min.js', $jsFile])
 
+{{-- Heading --}}
+<div class="text-center mb-8 px-4">
+<h3 class="text-3xl font-bold mb-2 text-white">{{ $id->name ?? 'Objek 3D' }}</h3>
+<span class="text-white text-sm leading-relaxed block">
+Scroll Up / Down Untuk Zoom In/Out <br>
+Klik Kiri Untuk Rotasi <br>
+Klik Kanan Untuk Menggeser
+</span>
+</div>
+
+
+{{-- Canvas 3D --}}
+<div class="flex justify-center my-6">
+<div id="{{ $id->code }}" class="h-[500px] w-[90vw] rounded-xl shadow-lg bg-gradient-to-br from-[#0d161a] to-[#1a2e38]"></div>
+</div>
+
+
+</section>
 @endsection

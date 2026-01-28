@@ -2,107 +2,107 @@
 <html lang="en">
 
 <head>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="description" content="">
-	<meta name="author" content="Atheo">
+    <meta charset="utf-8"> 
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"> 
+	<meta name="viewport" content="width=device-width, initial-scale=1"> 
+	<meta name="description" content=""> 
+	<meta name="author" content="Atheo"> 
 	<title>@yield('title', 'Object 3D')</title>
-	<link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
 
-	@vite(['resources/css/animate.css', 'resources/css/bootstrap.min.css', 'resources/css/font-awesome.min.css', 'resources/css/ionicons.min.css', 'resources/css/main.css', 'resources/js/bootstrap.min.js', 'resources/js/bootstrap.bundle.min.js'])
+    @vite(['resources/css/animate.css', 'resources/css/tailwindoutput.css', 'resources/css/font-awesome.min.css', 'resources/css/ionicons.min.css'])
+    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+	<script src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
 
-	<style>
-		/* CSS Wajib: Pastikan tidak ada margin default yang menyebabkan jarak atas */
-		html,
-		body {
-			margin: 0;
-			padding: 0;
-		}
-
-		/* CSS Wajib: Tambahkan padding ke body agar konten tidak tertutup fixed-top navbar */
-		body {
-			padding-top: 70px;
-			/* Ganti nilai ini jika navbar  lebih tinggi */
-		}
-
-		/* Jika  tidak ingin brand dan menu mepet ke tepi layar, ganti .container-fluid menjadi .container */
-	</style>
+    <style>
+        body {
+            padding-top: 80px;
+        }
+    </style>
 </head>
 
-<body>
-	<header>
-		<nav class="navbar navbar-expand-md navbar-light bg-light fixed-top">
-			<div class="container-fluid">
+<body class="bg-[#101d22]">
 
-				<a class="navbar-brand" href="/">Website 3D Terka</a>
+    <!-- NAVBAR -->
+    <header x-data="{open:false}">
+        <nav class="fixed top-0 left-0 w-full bg-gradient-to-br from-[#0d161a] to-[#1a2e38] text-white shadow z-50">
+            <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
 
-				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#main-nav"
-					aria-controls="main-nav" aria-expanded="false" aria-label="Toggle navigation">
-					<span class="navbar-toggler-icon"></span>
+                <!-- Brand -->
+                <a href="/" class="text-xl font-bold text-sky-400">Website 3D Terka</a>
+
+                <!-- Button Mobile -->
+               <button @click="open = !open" class="md:hidden focus:outline-none text-2xl">
+				☰
 				</button>
 
-				<div class="collapse navbar-collapse" id="main-nav">
-					<ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-						<li class="nav-item"><a class="nav-link" href="{{ route('home') }}">Beranda</a></li>
-						<li class="nav-item"><a class="nav-link" href="{{ route('about') }}">About</a></li>
-						<li class="nav-item"><a class="nav-link" href="{{ route('thanksfor') }}">Thanksfor</a></li>
-						<li class="nav-item"><a class="nav-link" href="{{ route('data.index') }}">List Terumbu Karang</a></li>
-					</ul>
-				</div>
-			</div>
-		</nav>
-	</header>
+                <!-- Menu -->
+                <ul class="hidden md:flex space-x-6">
+                    <li><a href="{{ route('home') }}" class="hover:text-sky-400">Beranda</a></li>
+                    <li><a href="{{ route('about') }}" class="hover:text-sky-400">About</a></li>
+                    <li><a href="{{ route('thanksfor') }}" class="hover:text-sky-400">Thanksfor</a></li>
+                    <li><a href="{{ route('data.index') }}" class="hover:text-sky-400">List Terumbu Karang</a></li>
+                </ul>
+            </div>
 
-	<div id="wrap">
-		<div id="content">
-			@yield('content')
-		</div>
+            <!-- Mobile Menu -->
+            <div x-show="open" class="md:hidden px-4 pb-4 space-y-2 bg-[#101d22] shadow">
+                <a href="{{ route('home') }}" class="block hover:text-sky-400">Beranda</a>
+                <a href="{{ route('about') }}" class="block hover:text-sky-400">About</a>
+                <a href="{{ route('thanksfor') }}" class="block hover:text-sky-400">Thanksfor</a>
+                <a href="{{ route('data.index') }}" class="block hover:text-sky-400">List Terumbu Karang</a>
+            </div>
+        </nav>
+    </header>
 
-		<footer class="bg-dark text-light">
-			<div class="container py-5">
-				<div class="row">
+    <!-- CONTENT -->
+    <div id="wrap" class="min-h-screen">
+        <div id="content">
+            @yield('content')
+        </div>
 
-					<div class="col-md-4 col-sm-6 mb-4">
-						<h5 class="text-dark fw-bold mb-3">Navigasi Utama</h5>
-						<ul class="list-unstyled">
-							<li class="mb-2"><a href="/data" class="text-muted text-decoration-none">Beranda</a></li>
-							<li class="mb-2"><a href="#" class="text-muted text-decoration-none">List Terumbu Karang</a></li>
-						</ul>
-					</div>
+        <!-- FOOTER -->
+        <footer class="bg-gradient-to-br from-[#0d161a] to-[#1a2e38] text-gray-300 mt-20">
+            <div class="max-w-7xl mx-auto px-6 py-12 grid grid-cols-1 md:grid-cols-3 gap-8">
 
-					<div class="col-md-4 col-sm-6 mb-4">
-						<h5 class="text-dark fw-bold mb-3">Tautan Terkait</h5>
-						<ul class="list-unstyled">
-							<li class="mb-2"><a href="{{ route('home') }}" class="text-muted text-decoration-none">Tentang Kami</a></li>
-							<li class="mb-2"><a href="{{ route('about') }}" class="text-muted text-decoration-none">Hubungi Kami</a></li>
-							<li class="mb-2"><a href="{{ route('thanksfor') }}" class="text-muted text-decoration-none">Hubungi Kami</a>
-							</li>
-							<li class="mb-2"><a href="{{ route('data.index') }}" class="text-muted text-decoration-none">Kebijakan
-									Privasi</a></li>
-						</ul>
-					</div>
+                <!-- Navigasi -->
+                <div>
+                    <h5 class="text-white font-semibold mb-4">Navigasi Utama</h5>
+                    <ul class="space-y-2">
+                        <li><a href="/data" class="hover:text-white">Beranda</a></li>
+                        <li><a href="#" class="hover:text-white">List Terumbu Karang</a></li>
+                    </ul>
+                </div>
 
-					<div class="col-md-4 col-sm-12 mb-4">
-						<h5 class="text-dark fw-bold mb-3">Tentang Aplikasi</h5>
-						<p class="text-muted">Aplikasi visualisasi 3D untuk pelestarian terumbu karang Indonesia, didukung oleh teknologi
-							pemodelan 3D terbaru.</p>
-						<p class="text-muted small">Hubungi kami: info@website3dterka.com</p>
-					</div>
+                <!-- Tautan -->
+                <div>
+                    <h5 class="text-white font-semibold mb-4">Tautan Terkait</h5>
+                    <ul class="space-y-2">
+                        <li><a href="{{ route('home') }}" class="hover:text-white">Tentang Kami</a></li>
+                        <li><a href="{{ route('about') }}" class="hover:text-white">Hubungi Kami</a></li>
+                        <li><a href="{{ route('thanksfor') }}" class="hover:text-white">Thanksfor</a></li>
+                        <li><a href="{{ route('data.index') }}" class="hover:text-white">Kebijakan Privasi</a></li>
+                    </ul>
+                </div>
 
-				</div>
+                <!-- Tentang -->
+                <div>
+                    <h5 class="text-white font-semibold mb-4">Tentang Aplikasi</h5>
+                    <p class="text-sm">Aplikasi visualisasi 3D untuk pelestarian terumbu karang Indonesia, didukung teknologi pemodelan 3D.</p>
+                    <p class="text-sm mt-2">Hubungi: info@website3dterka.com</p>
+                </div>
 
-				<hr class="my-4">
+            </div>
 
-				<div class="row">
-					<div class="col-md-12 text-center">
-						<p class="text-muted small mb-0">&copy; 2025 Website 3D Terka. All Rights Reserved.</p>
-						<a href="#wrap" class="go-up btn btn-sm btn-outline-secondary mt-3">Kembali ke Atas</a>
-					</div>
-				</div>
-			</div>
-		</footer>
-	</div>
+            <div class="border-t border-gray-700 py-6 text-center text-sm">
+                &copy; 2026 Website 3D Terka. All Rights Reserved.
+                <div class="mt-3">
+                    <a href="#wrap" class="inline-block px-4 py-2 border border-gray-500 rounded hover:bg-gradient-to-br from-[#0d161a] to-[#1a2e38]">
+                        Kembali ke Atas
+                    </a>
+                </div>
+            </div>
+        </footer>
+    </div>
+
 </body>
-
 </html>

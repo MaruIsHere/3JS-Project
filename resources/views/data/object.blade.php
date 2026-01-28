@@ -3,47 +3,57 @@
 @section('title', 'Object 3D')
 
 @section('content')
-	<section class="bg-light" style="padding-top: 100px; padding-bottom: 100px;">
-		<div class="container">
+	<section class="pt-24 pb-24">
+	<div class="max-w-7xl mx-auto px-4">
 
-			<div class="heading text-center mb-5">
-				<h4>Daftar Object 3D Terumbu Karang</h4>
-				<span>List dari 3D Terumbu Karang</span>
-			</div>
 
-			<div class="row row-fix">
-				@foreach ($datas as $key => $data)
-					<div class="col-6 col-md-4 col-lg-3 column-spacing gy-5">
+	<div class="text-center mb-10">
+	<h4 class="text-2xl font-bold text-white">Daftar Object 3D Terumbu Karang</h4>
+	<span class="text-white">List dari 3D Terumbu Karang</span>
+	</div>
 
-						<div class="card h-100 shadow-sm hover-card d-flex flex-column">
 
-							<div class="position-relative d-flex justify-content-center align-items-center bg-white py-3"
-								style="height: 250px; overflow: hidden;">
+	<div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6">
+	@foreach ($datas as $data)
+	<div class="bg-gradient-to-br from-[#0d161a] to-[#1a2e38] rounded-xl shadow hover:shadow-lg transition duration-300 flex flex-col">
 
-								<a href="{{ route('data.show', $data) }}" class="d-block text-center w-100">
-									@if ($data->image)
-										<img src="{{ asset('storage/products/' . $data->image) }}" alt="{{ $data->name }}" class="img-fluid">
-									@else
-										<div class="d-flex align-items-center justify-content-center" style="height: 240px;">
-											<i class="fas fa-cube fa-4x text-secondary opacity-25"></i>
-										</div>
-									@endif
-								</a>
-							</div>
 
-							<div class="card-body text-center border-top flex-grow-1">
-								<h6 class="card-title mb-0">
-									<a href="{{ route('data.show', $data) }}" class="text-decoration-none text-dark fw-bold stretched-link">
-										{{ $data->name }}
-									</a>
-								</h6>
-							</div>
-						</div>
-					</div>
-				@endforeach
-			</div>
-			{{ $datas->links() }}
-		</div>
+	<!-- Image -->
+	<div class="relative flex justify-center items-center bg-gradient-to-br from-[#0d161a] to-[#1a2e38] py-3 h-[250px] overflow-hidden rounded-t-xl">
+	<a href="{{ route('data.show', $data) }}" class="block w-full text-center">
+	@if ($data->image)
+	<img src="{{ asset('storage/products/' . $data->image) }}"
+	alt="{{ $data->name }}"
+	class="max-h-[220px] mx-auto object-contain">
+	@else
+	<div class="flex items-center justify-center h-[220px]">
+	<svg class="w-16 h-16 text-gray-300" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+	<path stroke-linecap="round" stroke-linejoin="round" d="M21 16.5V7.5a2.25 2.25 0 00-1.086-1.94l-7.5-4.5a2.25 2.25 0 00-2.328 0l-7.5 4.5A2.25 2.25 0 003 7.5v9a2.25 2.25 0 001.086 1.94l7.5 4.5a2.25 2.25 0 002.328 0l7.5-4.5A2.25 2.25 0 0021 16.5z"/>
+	</svg>
+	</div>
+	@endif
+	</a>
+	</div>
+
+
+	<!-- Title -->
+	<div class="border-t p-4 text-center flex-grow">
+	<a href="{{ route('data.show', $data) }}"
+	class="text-white font-semibold hover:text-sky-400 transition">
+	{{ $data->name }}
+	</a>
+	</div>
+
+
+	</div>
+	@endforeach
+	</div>
+
+
+	<!-- Pagination -->
+	<div class="mt-10">
+	{{ $datas->links() }}
+	</div>
+	</div>
 	</section>
-
 @endsection

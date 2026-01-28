@@ -46,16 +46,31 @@ loader.load(`/models/${objToRender}/scene.gltf`, (gltf) => {
     object = gltf.scene;
     scene.add(object);
 
-    // ===== POPUP INFO 3D =====
+    // ===== POPUP INFO 3D DENGAN ICON =====
     const labelDiv = document.createElement("div");
     labelDiv.className = "label3d";
     labelDiv.innerHTML = `
-        <strong>Sideropora mordax</strong><br/>
-        Sideropora mordax adalah spesies karang keras (ordo Scleractinia) yang termasuk dalam famili Acroporidae. Karang ini dikenal memiliki struktur yang sangat kokoh dan padat, sesuai dengan nama mordax yang merujuk pada sifat “keras/kuat”. Koloninya umumnya berbentuk bercabang tebal atau massif bercabang pendek, dengan rangka kalsium karbonat yang kuat.
+    <div class="info-icon">ℹ️</div>
+    <div class="info-popup hidden">
+    <strong>Sideropora mordax</strong><br/>
+    Sideropora mordax adalah spesies karang keras (ordo Scleractinia) yang termasuk dalam famili Acroporidae.
+    </div>
     `;
 
+
+    const icon = labelDiv.querySelector(".info-icon");
+    const popup = labelDiv.querySelector(".info-popup");
+
+
+    // Toggle popup saat ikon diklik
+    icon.addEventListener("click", (e) => {
+    e.stopPropagation();
+    popup.classList.toggle("hidden");
+    });
+
+
     const label = new CSS2DObject(labelDiv);
-    label.position.set(0, -0.08, 0); // posisi popup di atas objek
+    label.position.set(0, -0.08, 0);
     object.add(label);
 });
 
@@ -69,7 +84,7 @@ const labelRenderer = new CSS2DRenderer();
 labelRenderer.setSize(containerWidth, containerHeight);
 labelRenderer.domElement.style.position = "absolute";
 labelRenderer.domElement.style.top = "0";
-labelRenderer.domElement.style.pointerEvents = "none";
+labelRenderer.domElement.style.pointerEvents = "auto";
 container.appendChild(labelRenderer.domElement);
 
 // ================= CAMERA =================
