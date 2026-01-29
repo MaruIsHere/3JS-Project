@@ -50,13 +50,26 @@ loader.load(`/models/${objToRender}/scene.gltf`, (gltf) => {
     const labelDiv = document.createElement("div");
     labelDiv.className = "label3d";
     labelDiv.innerHTML = `
+     <div class="info-icon">ℹ️</div>
+    <div class="info-popup hidden">
         <strong>Psammocora columna</strong><br/>
-Psammocora columna adalah spesies karang keras (ordo Scleractinia) yang termasuk dalam famili Psammocoridae. Karang ini dikenal dengan bentuk koloninya yang masif hingga kolumnar (berbentuk tiang/pilar) dan permukaan yang relatif halus. Psammocora sering dianggap karang yang cukup tangguh terhadap variasi kondisi lingkungan.
+Psammocora columna adalah spesies karang keras (ordo Scleractinia) yang termasuk dalam famili Psammocoridae.
     `;
 
-    const label = new CSS2DObject(labelDiv);
-    label.position.set(0, -0.08, 0); // posisi popup di atas objek
-    object.add(label);
+  const icon = labelDiv.querySelector(".info-icon");
+      const popup = labelDiv.querySelector(".info-popup");
+  
+  
+      // Toggle popup saat ikon diklik
+      icon.addEventListener("click", (e) => {
+      e.stopPropagation();
+      popup.classList.toggle("hidden");
+      });
+  
+  
+      const label = new CSS2DObject(labelDiv);
+      label.position.set(0, -0.08, 0);
+      object.add(label);
 });
 
 // ================= RENDERER =================

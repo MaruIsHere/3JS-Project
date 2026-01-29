@@ -5,6 +5,7 @@ export default defineConfig({
     plugins: [
         laravel({
             input: [
+                "resources/css/tailwindoutput.css",
                 "resources/css/app.css",
                 "resources/js/app.js",
                 "resources/css/animate.css",
@@ -75,6 +76,7 @@ export default defineConfig({
                 "resources/js/jquery.fatNav.min.js",
                 "resources/js/jquery-1.11.3.min.js",
                 "resources/js/bootstrap.bundle.min.js",
+                
             ],
             refresh: true,
         }),

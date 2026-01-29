@@ -50,13 +50,27 @@ loader.load(`/models/${objToRender}/scene.gltf`, (gltf) => {
     const labelDiv = document.createElement("div");
     labelDiv.className = "label3d";
     labelDiv.innerHTML = `
+     <div class="info-icon">ℹ️</div>
+    <div class="info-popup hidden">
         <strong>Madrepora hyacinthus</strong><br/>
-      Madrepora hyacinthus adalah nama ilmiah untuk spesies karang keras (Scleractinia) dalam famili Faviidae, yang merupakan bagian dari genus Madrepora, dikenal karena bentuknya yang bercabang menyerupai tangkai bunga hyacinth, meskipun lebih sering dikenal sebagai karang (organisme laut) daripada tanaman bunga (hyacinthus), dan merupakan fosil yang penting dalam studi paleontologi karang laut dalam, terutama dari masa Pleistosen dan Miosen di Indo-Pasifik.
+      Madrepora hyacinthus adalah nama ilmiah untuk spesies karang keras (Scleractinia) dalam famili Faviidae
     `;
 
-    const label = new CSS2DObject(labelDiv);
-    label.position.set(0, -0.08, 0); // posisi popup di atas objek
-    object.add(label);
+    
+        const icon = labelDiv.querySelector(".info-icon");
+        const popup = labelDiv.querySelector(".info-popup");
+    
+    
+        // Toggle popup saat ikon diklik
+        icon.addEventListener("click", (e) => {
+        e.stopPropagation();
+        popup.classList.toggle("hidden");
+        });
+    
+    
+        const label = new CSS2DObject(labelDiv);
+        label.position.set(0, -0.08, 0);
+        object.add(label);
 });
 
 // ================= RENDERER =================

@@ -50,13 +50,27 @@ loader.load(`/models/${objToRender}/scene.gltf`, (gltf) => {
     const labelDiv = document.createElement("div");
     labelDiv.className = "label3d";
     labelDiv.innerHTML = `
+    <div class="info-icon">ℹ️</div>
+    <div class="info-popup hidden">
         <strong>Madrepora spicifera</strong><br/>
-       Madrepora spicifera adalah spesies karang batu dalam genus Madrepora, termasuk dalam famili Madreporidae, dikenal membentuk struktur bercabang dengan polip kecil dalam cangkir silinder, penting dalam ekosistem terumbu karang meskipun sering dikaitkan dengan genus Madrepora yang lebih umum dikenal sebagai "karang tanduk" (meskipun nama Madrepora dulu dipakai luas untuk semua karang batu). Spesies ini merupakan bagian dari klasifikasi ilmiah: Filum Cnidaria, Kelas Anthozoa, Ordo Scleractinia, dan pernah memiliki varietas seperti M. spicifera var. abbreviata
+       Madrepora spicifera adalah spesies karang batu dalam genus Madrepora, termasuk dalam famili Madreporidae, dikenal membentuk struktur bercabang dengan polip kecil dalam cangkir silinder
     `;
 
-    const label = new CSS2DObject(labelDiv);
-    label.position.set(0, -0.08, 0); // posisi popup di atas objek
-    object.add(label);
+   
+       const icon = labelDiv.querySelector(".info-icon");
+       const popup = labelDiv.querySelector(".info-popup");
+   
+   
+       // Toggle popup saat ikon diklik
+       icon.addEventListener("click", (e) => {
+       e.stopPropagation();
+       popup.classList.toggle("hidden");
+       });
+   
+   
+       const label = new CSS2DObject(labelDiv);
+       label.position.set(0, -0.08, 0);
+       object.add(label);
 });
 
 // ================= RENDERER =================

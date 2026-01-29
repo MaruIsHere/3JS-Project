@@ -50,13 +50,26 @@ loader.load(`/models/${objToRender}/scene.gltf`, (gltf) => {
     const labelDiv = document.createElement("div");
     labelDiv.className = "label3d";
     labelDiv.innerHTML = `
+    <div class="info-icon">ℹ️</div>
+    <div class="info-popup hidden">
         <strong>Scleractinina coral indet</strong><br/>
- Scleractinia juga disebut sebagai karang batu (karang berbatu) atau karang keras. Merupakan hewan laut di filum Cnidaria yang membangun kerangka keras untuk diri mereka sendiri. Memiliki kemiripan bentuk dengan anemon laut mini dan mereka dipersenjatai dengan sel menyengat yang dikenal sebagai cnidocytes. Karang yang satu ini banyak ditemukan di perairan tropis yang dengan air jernih dan dangkal dengan sinar matahari cahayanya dapat menembus, walaupun tumbuh pada semua samudra di dunia.
+ Scleractinia juga disebut sebagai karang batu (karang berbatu) atau karang keras. 
     `;
 
-    const label = new CSS2DObject(labelDiv);
-    label.position.set(0, -0.08, 0); // posisi popup di atas objek
-    object.add(label);
+    const icon = labelDiv.querySelector(".info-icon");
+       const popup = labelDiv.querySelector(".info-popup");
+   
+   
+       // Toggle popup saat ikon diklik
+       icon.addEventListener("click", (e) => {
+       e.stopPropagation();
+       popup.classList.toggle("hidden");
+       });
+   
+   
+       const label = new CSS2DObject(labelDiv);
+       label.position.set(0, -0.08, 0);
+       object.add(label);
 });
 
 // ================= RENDERER =================

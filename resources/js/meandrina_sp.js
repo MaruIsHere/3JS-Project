@@ -50,12 +50,25 @@ loader.load(`/models/${objToRender}/scene.gltf`, (gltf) => {
     const labelDiv = document.createElement("div");
     labelDiv.className = "label3d";
     labelDiv.innerHTML = `
+    <div class="info-icon">ℹ️</div>
+    <div class="info-popup hidden">
         <strong>Meandrina sp</strong><br/>
-        Meandrina meandrites ditemukan di Bermuda , Florida , Laut Karibia, Teluk Meksiko, dan Bahama . Ia terutama terdapat di sisi laut terumbu karang tetapi juga terdapat di lereng belakang. Kisaran kedalaman yang disukainya adalah 8 hingga 30 meter (26 hingga 98 kaki) tetapi ditemukan pada kedalaman kurang dari 80 meter (260 kaki). Ia mentolerir lokasi dengan tingkat sedimentasi dan kekeruhan yang tinggi. Secara umum, ia adalah karang yang paling sering terlihat di bagian yang lebih dalam dari jangkauannya.
+        Meandrina meandrites ditemukan di Bermuda , Florida , Laut Karibia, Teluk Meksiko, dan Bahama .
     `;
 
+    const icon = labelDiv.querySelector(".info-icon");
+    const popup = labelDiv.querySelector(".info-popup");
+
+
+    // Toggle popup saat ikon diklik
+    icon.addEventListener("click", (e) => {
+    e.stopPropagation();
+    popup.classList.toggle("hidden");
+    });
+
+
     const label = new CSS2DObject(labelDiv);
-    label.position.set(0, -0.08, 0); // posisi popup di atas objek
+    label.position.set(0, -0.08, 0);
     object.add(label);
 });
 

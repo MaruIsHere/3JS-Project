@@ -50,13 +50,26 @@ loader.load(`/models/${objToRender}/scene.gltf`, (gltf) => {
     const labelDiv = document.createElement("div");
     labelDiv.className = "label3d";
     labelDiv.innerHTML = `
+     <div class="info-icon">ℹ️</div>
+    <div class="info-popup hidden">
         <strong>Pseudodiploria strigosa</strong><br/>
-   Pseudodiploria strigosa , karang otak simetris , adalah spesies karang batu kolonial dalam famili Mussidae . Ia ditemukan di terumbu karang di perairan dangkal di Samudra Atlantik Barat dan Laut Karibia. Pertumbuhannya lambat dan hidup hingga usia yang sangat tua.
+   Pseudodiploria strigosa , karang otak simetris , adalah spesies karang batu kolonial dalam famili Mussidae .
     `;
 
-    const label = new CSS2DObject(labelDiv);
-    label.position.set(0, -0.08, 0); // posisi popup di atas objek
-    object.add(label);
+     const icon = labelDiv.querySelector(".info-icon");
+        const popup = labelDiv.querySelector(".info-popup");
+    
+    
+        // Toggle popup saat ikon diklik
+        icon.addEventListener("click", (e) => {
+        e.stopPropagation();
+        popup.classList.toggle("hidden");
+        });
+    
+    
+        const label = new CSS2DObject(labelDiv);
+        label.position.set(0, -0.08, 0);
+        object.add(label);
 });
 
 // ================= RENDERER =================

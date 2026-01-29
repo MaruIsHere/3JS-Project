@@ -50,13 +50,26 @@ loader.load(`/models/${objToRender}/scene.gltf`, (gltf) => {
     const labelDiv = document.createElement("div");
     labelDiv.className = "label3d";
     labelDiv.innerHTML = `
+     <div class="info-icon">ℹ️</div>
+    <div class="info-popup hidden">
         <strong>Madrepora conigera</strong><br/>
   Madrepora conigera adalah nama taksonomi lama atau sinonim untuk spesies karang batu, yang sekarang lebih dikenal sebagai Acropora conigera, bagian dari genus Acropora (karang tanduk), dikenal karena membentuk koloni bercabang yang menyerupai tanduk, sering kali dengan ujung cabang berwarna pink atau krem, dan memainkan peran penting dalam pembentukan terumbu karang.
     `;
 
-    const label = new CSS2DObject(labelDiv);
-    label.position.set(0, -0.08, 0); // posisi popup di atas objek
-    object.add(label);
+     const icon = labelDiv.querySelector(".info-icon");
+        const popup = labelDiv.querySelector(".info-popup");
+    
+    
+        // Toggle popup saat ikon diklik
+        icon.addEventListener("click", (e) => {
+        e.stopPropagation();
+        popup.classList.toggle("hidden");
+        });
+    
+    
+        const label = new CSS2DObject(labelDiv);
+        label.position.set(0, -0.08, 0);
+        object.add(label);
 });
 
 // ================= RENDERER =================

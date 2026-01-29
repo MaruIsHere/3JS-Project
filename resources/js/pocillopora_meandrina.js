@@ -50,13 +50,26 @@ loader.load(`/models/${objToRender}/scene.gltf`, (gltf) => {
     const labelDiv = document.createElement("div");
     labelDiv.className = "label3d";
     labelDiv.innerHTML = `
+    <div class="info-icon">ℹ️</div>
+    <div class="info-popup hidden">
         <strong>Pocillopora meandrina</strong><br/>
-      Pocillopora meandrina, atau Karang Kembang Kol (Cauliflower Coral), adalah spesies karang batu umum yang ditemukan di terumbu karang dangkal di Indo-Pasifik dan Pasifik Timur, dikenal karena bentuknya seperti semak kecil dengan cabang yang merata, sering berwarna krem, hijau, atau pink, dan merupakan bagian penting dari ekosistem terumbu karang yang hidup di perairan berombak kuat.
+      Pocillopora meandrina, atau Karang Kembang Kol (Cauliflower Coral), adalah spesies karang batu umum yang ditemukan di terumbu karang dangkal di Indo-Pasifik dan Pasifik Timur, dikenal karena bentuknya seperti semak kecil dengan cabang yang merata
     `;
 
-    const label = new CSS2DObject(labelDiv);
-    label.position.set(0, -0.08, 0); // posisi popup di atas objek
-    object.add(label);
+    const icon = labelDiv.querySelector(".info-icon");
+        const popup = labelDiv.querySelector(".info-popup");
+    
+    
+        // Toggle popup saat ikon diklik
+        icon.addEventListener("click", (e) => {
+        e.stopPropagation();
+        popup.classList.toggle("hidden");
+        });
+    
+    
+        const label = new CSS2DObject(labelDiv);
+        label.position.set(0, -0.08, 0);
+        object.add(label);
 });
 
 // ================= RENDERER =================

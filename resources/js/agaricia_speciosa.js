@@ -50,13 +50,26 @@ loader.load(`/models/${objToRender}/scene.gltf`, (gltf) => {
     const labelDiv = document.createElement("div");
     labelDiv.className = "label3d";
     labelDiv.innerHTML = `
+    <div class="info-icon">ℹ️</div>
+    <div class="info-popup hidden">
         <strong>Agaricia speciosa</strong><br/>
- Agaricia speciosa adalah karang keras (ordo Scleractinia) dari famili Agariciidae yang dikenal sebagai karang daun (lettuce/plate coral). Spesies ini membentuk lembaran tipis atau koloni foliose dengan pola alur radial yang khas, menjadikannya mudah dikenali dalam genus Agaricia.
+ Agaricia speciosa adalah karang keras (ordo Scleractinia) dari famili Agariciidae yang dikenal sebagai karang daun (lettuce/plate coral).
     `;
 
-    const label = new CSS2DObject(labelDiv);
-    label.position.set(0, -0.08, 0); // posisi popup di atas objek
-    object.add(label);
+    const icon = labelDiv.querySelector(".info-icon");
+        const popup = labelDiv.querySelector(".info-popup");
+    
+    
+        // Toggle popup saat ikon diklik
+        icon.addEventListener("click", (e) => {
+        e.stopPropagation();
+        popup.classList.toggle("hidden");
+        });
+    
+    
+        const label = new CSS2DObject(labelDiv);
+        label.position.set(0, -0.08, 0);
+        object.add(label);
 });
 
 // ================= RENDERER =================

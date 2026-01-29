@@ -50,12 +50,25 @@ loader.load(`/models/${objToRender}/scene.gltf`, (gltf) => {
     const labelDiv = document.createElement("div");
     labelDiv.className = "label3d";
     labelDiv.innerHTML = `
+     <div class="info-icon">ℹ️</div>
+    <div class="info-popup hidden">
         <strong>Foliacious Montipora sp</strong><br/>
   Ciri Morfologi Bentuk koloni: Lembaran tipis, melebar, sering bertumpuk atau berlipat Tepi koloni: Bergelombang atau bergerigi halus Permukaan: Halus hingga sedikit bergranula Korallit: Sangat kecil, dangkal, sulit dibedakan Tekstur rangka: Tipis namun keras Warna: Cokelat, krem, hijau, ungu pucat, hingga kemerahan (saat hidup) Habitat dan Persebaran Habitat: Lereng terumbu (reef slope) dan terumbu bagian dalam Kedalaman: sekitar 5–30 meter Lingkungan: Cahaya sedang, arus lemah–sedang Persebaran: Indo-Pasifik, termasuk perairan Indonesia
     `;
 
+    const icon = labelDiv.querySelector(".info-icon");
+    const popup = labelDiv.querySelector(".info-popup");
+
+
+    // Toggle popup saat ikon diklik
+    icon.addEventListener("click", (e) => {
+    e.stopPropagation();
+    popup.classList.toggle("hidden");
+    });
+
+
     const label = new CSS2DObject(labelDiv);
-    label.position.set(0, -0.08, 0); // posisi popup di atas objek
+    label.position.set(0, -0.08, 0);
     object.add(label);
 });
 

@@ -50,13 +50,26 @@ loader.load(`/models/${objToRender}/scene.gltf`, (gltf) => {
     const labelDiv = document.createElement("div");
     labelDiv.className = "label3d";
     labelDiv.innerHTML = `
+     <div class="info-icon">ℹ️</div>
+    <div class="info-popup hidden">
         <strong>Diploastrea heliopora</strong><br/>
- Diploastrea heliopora pertama kali dideskripsikan pada tahun 1816 oleh naturalis Prancis Jean-Baptiste Lamarck sebagai Astrea heliopora . Kemudian dipindahkan ke genus baru Diploastrea oleh G. Matthai pada tahun 1914. Diploastrea heliopora dimasukkan ke dalam famili Agathiphylliidae oleh TW Vaughan dan JW Wells pada tahun 1943. Ini adalah satu-satunya anggota famili yang masih hidup, yang juga mencakup empat spesies fosil. Pada tahun 1956, Wells memindahkan genus tersebut ke Faviidae , dan hal ini telah diterima secara luas. Namun, studi molekuler dan filogenetik terbaru menunjukkan bahwa karang ini memiliki ciri-ciri unik tertentu, dan famili terpisah, Diploastreidae, telah dikembalikan. Ini adalah satu-satunya anggota famili yang masih hidup.
+ Diploastrea heliopora pertama kali dideskripsikan pada tahun 1816 oleh naturalis Prancis Jean-Baptiste Lamarck sebagai Astrea heliopora .
     `;
 
-    const label = new CSS2DObject(labelDiv);
-    label.position.set(0, -0.08, 0); // posisi popup di atas objek
-    object.add(label);
+    const icon = labelDiv.querySelector(".info-icon");
+        const popup = labelDiv.querySelector(".info-popup");
+    
+    
+        // Toggle popup saat ikon diklik
+        icon.addEventListener("click", (e) => {
+        e.stopPropagation();
+        popup.classList.toggle("hidden");
+        });
+    
+    
+        const label = new CSS2DObject(labelDiv);
+        label.position.set(0, -0.08, 0);
+        object.add(label);
 });
 
 // ================= RENDERER =================

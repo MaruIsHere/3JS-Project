@@ -50,13 +50,27 @@ loader.load(`/models/${objToRender}/scene.gltf`, (gltf) => {
     const labelDiv = document.createElement("div");
     labelDiv.className = "label3d";
     labelDiv.innerHTML = `
+      <div class="info-icon">ℹ️</div>
+    <div class="info-popup hidden">
         <strong>Gemmipora brassica</strong><br/>
-      Gemmipora brassica adalah spesies karang keras (ordo Scleractinia) yang termasuk dalam famili Acroporidae. Spesies ini dikenal dengan bentuk koloni yang menyerupai kubis atau bunga kol, terdiri dari lembaran dan tonjolan pendek yang bertumpuk rapat. Dalam literatur modern, Gemmipora brassica sering diperlakukan sebagai sinonim atau bagian dari kompleks Acropora (khususnya kelompok Acropora humilis), sehingga penamaannya banyak dijumpai pada koleksi atau referensi lama.
+      Gemmipora brassica adalah spesies karang keras (ordo Scleractinia) yang termasuk dalam famili Acroporidae.
     `;
 
-    const label = new CSS2DObject(labelDiv);
-    label.position.set(0, -0.08, 0); // posisi popup di atas objek
-    object.add(label);
+    
+        const icon = labelDiv.querySelector(".info-icon");
+        const popup = labelDiv.querySelector(".info-popup");
+    
+    
+        // Toggle popup saat ikon diklik
+        icon.addEventListener("click", (e) => {
+        e.stopPropagation();
+        popup.classList.toggle("hidden");
+        });
+    
+    
+        const label = new CSS2DObject(labelDiv);
+        label.position.set(0, -0.08, 0);
+        object.add(label);
 });
 
 // ================= RENDERER =================

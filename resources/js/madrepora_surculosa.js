@@ -50,13 +50,26 @@ loader.load(`/models/${objToRender}/scene.gltf`, (gltf) => {
     const labelDiv = document.createElement("div");
     labelDiv.className = "label3d";
     labelDiv.innerHTML = `
+    <div class="info-icon">ℹ️</div>
+    <div class="info-popup hidden">
         <strong>Madrepora surculosa</strong><br/>
-        Madrepora surculosa adalah spesies karang keras (ordo Scleractinia) yang termasuk dalam famili Oculinidae. Karang ini memiliki bentuk koloni bercabang halus dan ramping, sekilas mirip Acropora, namun secara taksonomi berbeda. Madrepora dikenal sebagai karang dengan rangka yang relatif rapuh dan sering ditemukan di perairan yang lebih dalam atau bercahaya rendah.
+        Madrepora surculosa adalah spesies karang keras (ordo Scleractinia) yang termasuk dalam famili Oculinidae.
     `;
 
-    const label = new CSS2DObject(labelDiv);
-    label.position.set(0, -0.08, 0); // posisi popup di atas objek
-    object.add(label);
+   const icon = labelDiv.querySelector(".info-icon");
+       const popup = labelDiv.querySelector(".info-popup");
+   
+   
+       // Toggle popup saat ikon diklik
+       icon.addEventListener("click", (e) => {
+       e.stopPropagation();
+       popup.classList.toggle("hidden");
+       });
+   
+   
+       const label = new CSS2DObject(labelDiv);
+       label.position.set(0, -0.08, 0);
+       object.add(label);
 });
 
 // ================= RENDERER =================

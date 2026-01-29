@@ -50,13 +50,27 @@ loader.load(`/models/${objToRender}/scene.gltf`, (gltf) => {
     const labelDiv = document.createElement("div");
     labelDiv.className = "label3d";
     labelDiv.innerHTML = `
+     <div class="info-icon">ℹ️</div>
+    <div class="info-popup hidden">
         <strong>Goniastrea favulus</strong><br/>
-        Goniastrea favulus merupakan spesies asli dari wilayah Indo-Pasifik. Jangkauannya meliputi Madagaskar utara dan pantai timur Afrika hingga Kepulauan Maladewa, Asia Tenggara, Jepang, Australia, dan gugusan pulau di Samudra Pasifik. Spesies ini ditemukan di zona pasang surut dan bawah pasang turun di lereng terumbu depan dan belakang, serta di laguna. submeandroid. Dindingnya tipis, kolumelanya kecil dan lobus paliformisnya berkembang dengan baik. Warna: Hijau kusam atau coklat. Spesies Serupa: Goniastrea retiformis, yang memiliki struktur koralit serupa tetapi selalu cerioid. Habitat: Biasanya intertidal atau subtidal tetapi juga terdapat di berbagai habitat lainnya. Kelimpahan: Jarang. Catatan Taksonomi: Mungkin suatu spesies kompleks."
+        Goniastrea favulus merupakan spesies asli dari wilayah Indo-Pasifik.
     `;
 
-    const label = new CSS2DObject(labelDiv);
-    label.position.set(0, -0.08, 0); // posisi popup di atas objek
-    object.add(label);
+   
+       const icon = labelDiv.querySelector(".info-icon");
+       const popup = labelDiv.querySelector(".info-popup");
+   
+   
+       // Toggle popup saat ikon diklik
+       icon.addEventListener("click", (e) => {
+       e.stopPropagation();
+       popup.classList.toggle("hidden");
+       });
+   
+   
+       const label = new CSS2DObject(labelDiv);
+       label.position.set(0, -0.08, 0);
+       object.add(label);
 });
 
 // ================= RENDERER =================

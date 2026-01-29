@@ -50,12 +50,25 @@ loader.load(`/models/${objToRender}/scene.gltf`, (gltf) => {
     const labelDiv = document.createElement("div");
     labelDiv.className = "label3d";
     labelDiv.innerHTML = `
+     <div class="info-icon">ℹ️</div>
+    <div class="info-popup hidden">
         <strong>Fungia fungites</strong><br/>
      "Ciri-ciri: Polip berbentuk kurang lebih bulat dan berdiameter hingga 280 milimeter. Gigi septal berbentuk segitiga, runcing, dan biasanya memiliki rusuk tengah yang jelas. Lobus tentakel mungkin ada. Duri kosta tinggi, halus, dan berbentuk kerucut. Warna: Cokelat, kadang-kadang berbintik-bintik, seringkali dengan lobus tentakel pucat. Spesies Serupa: Fungia repanda, yang memiliki gigi septal yang lebih halus. Habitat: Lereng terumbu karang dan laguna. Kelimpahan: Umum. Catatan Taksonomi: Kompleks spesies."
     `;
 
+    const icon = labelDiv.querySelector(".info-icon");
+    const popup = labelDiv.querySelector(".info-popup");
+
+
+    // Toggle popup saat ikon diklik
+    icon.addEventListener("click", (e) => {
+    e.stopPropagation();
+    popup.classList.toggle("hidden");
+    });
+
+
     const label = new CSS2DObject(labelDiv);
-    label.position.set(0, -0.08, 0); // posisi popup di atas objek
+    label.position.set(0, -0.08, 0);
     object.add(label);
 });
 

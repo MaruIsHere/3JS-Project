@@ -50,13 +50,26 @@ loader.load(`/models/${objToRender}/scene.gltf`, (gltf) => {
     const labelDiv = document.createElement("div");
     labelDiv.className = "label3d";
     labelDiv.innerHTML = `
+      <div class="info-icon">ℹ️</div>
+    <div class="info-popup hidden">
         <strong>Astraea fissicella favistella</strong><br/>
-      Astraea fissicella adalah nama taksonomi lama untuk karang keras berbentuk masif–submasif yang dalam literatur klasik sering dikaitkan dengan kelompok Favistella/Favites-like coral. Dalam klasifikasi modern, genus Astraea sudah direvisi, dan spesies ini umumnya dimasukkan ke dalam famili Merulinidae, dengan kemiripan morfologi kuat terhadap genus Favites, Goniastrea, atau Favistella. Nama fissicella mengacu pada alur atau celah (fissure) yang memisahkan koralit.
+      Astraea fissicella adalah nama taksonomi lama untuk karang keras berbentuk masif–submasif yang dalam literatur klasik sering dikaitkan dengan kelompok Favistella/Favites-like coral.
     `;
 
-    const label = new CSS2DObject(labelDiv);
-    label.position.set(0, -0.08, 0); // posisi popup di atas objek
-    object.add(label);
+   const icon = labelDiv.querySelector(".info-icon");
+       const popup = labelDiv.querySelector(".info-popup");
+   
+   
+       // Toggle popup saat ikon diklik
+       icon.addEventListener("click", (e) => {
+       e.stopPropagation();
+       popup.classList.toggle("hidden");
+       });
+   
+   
+       const label = new CSS2DObject(labelDiv);
+       label.position.set(0, -0.08, 0);
+       object.add(label);
 });
 
 // ================= RENDERER =================

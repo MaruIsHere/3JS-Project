@@ -50,13 +50,26 @@ loader.load(`/models/${objToRender}/scene.gltf`, (gltf) => {
     const labelDiv = document.createElement("div");
     labelDiv.className = "label3d";
     labelDiv.innerHTML = `
+    <div class="info-icon">ℹ️</div>
+    <div class="info-popup hidden">
         <strong>Acropora prolifera</strong><br/>
-   Acropora prolifera ditemukan di Laut Karibia, Teluk Meksiko, Bahama dan Florida selatan hingga Kolombia dan Venezuela. Umumnya ditemukan di lereng terumbu karang bagian luar , di teluk air tenang dan di balik daratan, paling sering pada kedalaman sekitar 7 meter (23 kaki) tetapi kadang-kadang hingga sekitar 30 meter (98 kaki). Secara umum spesies ini jarang ditemukan.
+   Acropora prolifera ditemukan di Laut Karibia, Teluk Meksiko, Bahama dan Florida selatan hingga Kolombia dan Venezuela.
     `;
 
-    const label = new CSS2DObject(labelDiv);
-    label.position.set(0, -0.08, 0); // posisi popup di atas objek
-    object.add(label);
+    const icon = labelDiv.querySelector(".info-icon");
+       const popup = labelDiv.querySelector(".info-popup");
+   
+   
+       // Toggle popup saat ikon diklik
+       icon.addEventListener("click", (e) => {
+       e.stopPropagation();
+       popup.classList.toggle("hidden");
+       });
+   
+   
+       const label = new CSS2DObject(labelDiv);
+       label.position.set(0, -0.08, 0);
+       object.add(label);
 });
 
 // ================= RENDERER =================

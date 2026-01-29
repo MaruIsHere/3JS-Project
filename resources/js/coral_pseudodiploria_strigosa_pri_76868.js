@@ -50,13 +50,26 @@ loader.load(`/models/${objToRender}/scene.gltf`, (gltf) => {
     const labelDiv = document.createElement("div");
     labelDiv.className = "label3d";
     labelDiv.innerHTML = `
+    <div class="info-icon">ℹ️</div>
+    <div class="info-popup hidden">
         <strong>Pseudodiploria strigosa</strong><br/>
-Karang otak simetris membentuk lempengan datar halus atau kubah setengah bola masif hingga berdiameter 1,8 meter (5 kaki 11 inci). Permukaannya ditutupi oleh lembah-lembah berbelit-belit yang saling berhubungan di mana polip berada di dalam cekungan berbentuk cangkir yang dikenal sebagai koralit . Masing-masing koralit memiliki sejumlah punggungan yang tersusun secara radial yang dikenal sebagai septa yang berlanjut di luar koralit sebagai kosta dan terhubung dengan koralit tetangga.
+Karang otak simetris membentuk lempengan datar halus atau kubah setengah bola masif hingga berdiameter 1,8 meter (5 kaki 11 inci).
     `;
 
-    const label = new CSS2DObject(labelDiv);
-    label.position.set(0, -0.08, 0); // posisi popup di atas objek
-    object.add(label);
+    const icon = labelDiv.querySelector(".info-icon");
+        const popup = labelDiv.querySelector(".info-popup");
+    
+    
+        // Toggle popup saat ikon diklik
+        icon.addEventListener("click", (e) => {
+        e.stopPropagation();
+        popup.classList.toggle("hidden");
+        });
+    
+    
+        const label = new CSS2DObject(labelDiv);
+        label.position.set(0, -0.08, 0);
+        object.add(label);
 });
 
 // ================= RENDERER =================

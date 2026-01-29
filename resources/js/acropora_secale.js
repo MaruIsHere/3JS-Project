@@ -50,13 +50,26 @@ loader.load(`/models/${objToRender}/scene.gltf`, (gltf) => {
     const labelDiv = document.createElement("div");
     labelDiv.className = "label3d";
     labelDiv.innerHTML = `
+    <div class="info-icon">ℹ️</div>
+    <div class="info-popup hidden">
         <strong>Acropora secale</strong><br/>
-       Acropora secale ditemukan di perairan tropis Indo-Pasifik barat termasuk pantai Afrika Timur, Mozambik, Rodrigues , Aldabra dan Chagos . Ia juga ditemukan lebih jauh ke timur di sekitar Singapura, Thailand, Indonesia, Jepang, Filipina, Taiwan dan Australia utara dan barat. Ini adalah karang pembentuk terumbu dan terdapat pada kedalaman hingga 5 meter (16 kaki) di dataran terumbu luar, lereng terumbu, tepi terumbu dan dinding.
+       Acropora secale ditemukan di perairan tropis Indo-Pasifik barat termasuk pantai Afrika Timur, Mozambik, Rodrigues , Aldabra dan Chagos .
     `;
 
-    const label = new CSS2DObject(labelDiv);
-    label.position.set(0, -0.08, 0); // posisi popup di atas objek
-    object.add(label);
+     const icon = labelDiv.querySelector(".info-icon");
+        const popup = labelDiv.querySelector(".info-popup");
+    
+    
+        // Toggle popup saat ikon diklik
+        icon.addEventListener("click", (e) => {
+        e.stopPropagation();
+        popup.classList.toggle("hidden");
+        });
+    
+    
+        const label = new CSS2DObject(labelDiv);
+        label.position.set(0, -0.08, 0);
+        object.add(label);
 });
 
 // ================= RENDERER =================

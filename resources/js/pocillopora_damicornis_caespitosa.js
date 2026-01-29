@@ -50,13 +50,26 @@ loader.load(`/models/${objToRender}/scene.gltf`, (gltf) => {
     const labelDiv = document.createElement("div");
     labelDiv.className = "label3d";
     labelDiv.innerHTML = `
+        <div class="info-icon">ℹ️</div>
+    <div class="info-popup hidden">
         <strong>Pocillopora damicornis caespitosa</strong><br/>
-        Pocillopora damicornis caespitosa merujuk pada subspesies dari karang kembang kol atau karang renda, Pocillopora damicornis, yang memiliki ciri pertumbuhan membentuk rumpun padat (caespitosa) dengan percabangan rapat dan kecil, berbeda dengan varietas lain yang mungkin lebih terbuka, menunjukkan adaptasi terhadap lingkungan terumbu yang lebih dinamis, dan merupakan salah satu spesies karang paling umum di Indo-Pasifik, dikenal karena warnanya yang bervariasi dan kemampuannya beradaptasi di berbagai kedalaman
+        Pocillopora damicornis caespitosa merujuk pada subspesies dari karang kembang kol atau karang renda
     `;
 
-    const label = new CSS2DObject(labelDiv);
-    label.position.set(0, -0.08, 0); // posisi popup di atas objek
-    object.add(label);
+    const icon = labelDiv.querySelector(".info-icon");
+        const popup = labelDiv.querySelector(".info-popup");
+    
+    
+        // Toggle popup saat ikon diklik
+        icon.addEventListener("click", (e) => {
+        e.stopPropagation();
+        popup.classList.toggle("hidden");
+        });
+    
+    
+        const label = new CSS2DObject(labelDiv);
+        label.position.set(0, -0.08, 0);
+        object.add(label);
 });
 
 // ================= RENDERER =================

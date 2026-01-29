@@ -50,12 +50,25 @@ loader.load(`/models/${objToRender}/scene.gltf`, (gltf) => {
     const labelDiv = document.createElement("div");
     labelDiv.className = "label3d";
     labelDiv.innerHTML = `
+     <div class="info-icon">ℹ️</div>
+    <div class="info-popup hidden">
         <strong>Acropora palmata</strong><br/>
-  Karang Elkhorn (Acropora palmata) adalah karang yang tumbuh cepat dan mudah dikenali dari struktur percabangannya yang kompleks, terdiri dari koloni-koloni padat yang membentuk rumpun yang saling terkait. Struktur ini membuatnya menyerupai tanduk rusa. Karang ini sebagian besar ditemukan di Karibia dan Bahama, sangat dekat dengan garis pantai. Akibatnya, karang ini mengalami kerusakan besar akibat polusi manusia dan pemutihan karang. Karang Elkhorn memiliki tubuh yang besar, dan cabangnya kokoh dan tebal, yang dapat berwarna kuning hingga kuning kecoklatan dengan ujung putih. Karang ini dapat bereproduksi secara seksual atau aseksual. Karang ini dianggap sebagai karang keras.
+  Karang Elkhorn (Acropora palmata) adalah karang yang tumbuh cepat dan mudah dikenali dari struktur percabangannya yang kompleks, terdiri dari koloni-koloni padat yang membentuk rumpun yang saling terkait.
     `;
 
+ const icon = labelDiv.querySelector(".info-icon");
+    const popup = labelDiv.querySelector(".info-popup");
+
+
+    // Toggle popup saat ikon diklik
+    icon.addEventListener("click", (e) => {
+    e.stopPropagation();
+    popup.classList.toggle("hidden");
+    });
+
+
     const label = new CSS2DObject(labelDiv);
-    label.position.set(0, -0.08, 0); // posisi popup di atas objek
+    label.position.set(0, -0.08, 0);
     object.add(label);
 });
 

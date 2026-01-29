@@ -50,13 +50,27 @@ loader.load(`/models/${objToRender}/scene.gltf`, (gltf) => {
     const labelDiv = document.createElement("div");
     labelDiv.className = "label3d";
     labelDiv.innerHTML = `
+     <div class="info-icon">ℹ️</div>
+    <div class="info-popup hidden">
         <strong>Madrepora humilis</strong><br/>
-      Madrepora humilis adalah nama lama (sinonim) untuk spesies yang kini secara resmi dikenal sebagai Acropora humilis (famili Acroporidae). Pada literatur taksonomi modern, genus Madrepora tidak lagi digunakan untuk karang dangkal bercabang seperti ini. Acropora humilis dikenal sebagai karang bercabang pendek, tebal, dan sangat kokoh, sering dijumpai di perairan dangkal berenergi tinggi.
+      Madrepora humilis adalah nama lama (sinonim) untuk spesies yang kini secara resmi dikenal sebagai Acropora humilis (famili Acroporidae).
     `;
 
-    const label = new CSS2DObject(labelDiv);
-    label.position.set(0, -0.08, 0); // posisi popup di atas objek
-    object.add(label);
+   
+       const icon = labelDiv.querySelector(".info-icon");
+       const popup = labelDiv.querySelector(".info-popup");
+   
+   
+       // Toggle popup saat ikon diklik
+       icon.addEventListener("click", (e) => {
+       e.stopPropagation();
+       popup.classList.toggle("hidden");
+       });
+   
+   
+       const label = new CSS2DObject(labelDiv);
+       label.position.set(0, -0.08, 0);
+       object.add(label);
 });
 
 // ================= RENDERER =================

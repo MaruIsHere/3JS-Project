@@ -50,13 +50,26 @@ loader.load(`/models/${objToRender}/scene.gltf`, (gltf) => {
     const labelDiv = document.createElement("div");
     labelDiv.className = "label3d";
     labelDiv.innerHTML = `
+    <div class="info-icon">ℹ️</div>
+    <div class="info-popup hidden">
         <strong>Pocillopora grandis</strong><br/>
-       Pocillopora grandis adalah spesies karang batu kolonial dalam famili Pocilloporidae . Ia dikenal umum sebagai karang tanduk , dan ditemukan di wilayah Indo-Pasifik Barat hingga Pasifik Tropis Timur. Spesies ini tersebar di Laut Merah dan Teluk Aden. Distribusi lebih lanjut meliputi: Samudra Hindia bagian barat daya dan timur laut, Indo-Pasifik tengah, Australia tropis, Jepang selatan dan Laut Cina Selatan, Pasifik Barat samudra, Pasifik tengah, Kepulauan Hawaii dan Atol Johnston, Pasifik Timur Jauh. Di wilayah Pasifik Tropis Timur, spesies ini juga ditemukan di lepas pantai Meksiko, Kosta Rika, Panama, Kolombia dan Ekuador.
+       Pocillopora grandis adalah spesies karang batu kolonial dalam famili Pocilloporidae .
     `;
 
-    const label = new CSS2DObject(labelDiv);
-    label.position.set(0, -0.08, 0); // posisi popup di atas objek
-    object.add(label);
+   const icon = labelDiv.querySelector(".info-icon");
+      const popup = labelDiv.querySelector(".info-popup");
+  
+  
+      // Toggle popup saat ikon diklik
+      icon.addEventListener("click", (e) => {
+      e.stopPropagation();
+      popup.classList.toggle("hidden");
+      });
+  
+  
+      const label = new CSS2DObject(labelDiv);
+      label.position.set(0, -0.08, 0);
+      object.add(label);
 });
 
 // ================= RENDERER =================

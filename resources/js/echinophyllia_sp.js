@@ -50,13 +50,26 @@ loader.load(`/models/${objToRender}/scene.gltf`, (gltf) => {
     const labelDiv = document.createElement("div");
     labelDiv.className = "label3d";
     labelDiv.innerHTML = `
+     <div class="info-icon">ℹ️</div>
+    <div class="info-popup hidden">
         <strong>Echinophyllia sp</strong><br/>
-   Echinophyllia sp. adalah karang keras (ordo Scleractinia) dari famili Lobophylliidae yang belum diidentifikasi hingga tingkat spesies. Genus Echinophyllia dikenal sebagai karang chalice, dengan bentuk koloni lembaran tipis hingga menggulung, sering menempel pada substrat keras.
+   Echinophyllia sp. adalah karang keras (ordo Scleractinia) dari famili Lobophylliidae yang belum diidentifikasi hingga tingkat spesies.
     `;
 
-    const label = new CSS2DObject(labelDiv);
-    label.position.set(0, -0.08, 0); // posisi popup di atas objek
-    object.add(label);
+   const icon = labelDiv.querySelector(".info-icon");
+       const popup = labelDiv.querySelector(".info-popup");
+   
+   
+       // Toggle popup saat ikon diklik
+       icon.addEventListener("click", (e) => {
+       e.stopPropagation();
+       popup.classList.toggle("hidden");
+       });
+   
+   
+       const label = new CSS2DObject(labelDiv);
+       label.position.set(0, -0.08, 0);
+       object.add(label);
 });
 
 // ================= RENDERER =================
